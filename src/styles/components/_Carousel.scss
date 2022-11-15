@@ -1,0 +1,73 @@
+.carousel{
+    width: auto;
+    margin: auto;
+
+    ._card{
+        width: 90%;
+        img{
+            width: 100%;
+        }
+    }
+    h3{
+        margin: 0.6rem 1rem;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .left-button{
+        position: absolute;
+        top:-35px;
+        right:35px;
+        right:60px;
+        font-size: 12px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+        cursor: pointer;
+        &:hover{
+            background-color: $color-dark;
+            color: white;  
+            box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+        }
+    }
+    .right-button{
+        position: absolute;
+        top:-35px;
+        right: 24px;
+        font-size: 12px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+        cursor: pointer;
+        &:hover{
+            background-color: $color-dark;
+            color: white;  
+            box-shadow: 0px 0px 8px -3px rgba(0,0,0,0.75);
+        }
+    }
+    .alice-carousel__stage{
+        padding: 0 1rem !important;
+    } 
+}
+
+@include xl{
+.carousel{
+    width: 1110px;
+
+    h3{
+        margin: 0.6rem 0;
+    }
+    .alice-carousel__stage{
+        padding: 0 !important;
+    }
+}
+}

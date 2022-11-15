@@ -1,0 +1,17 @@
+.map{
+    margin-top: 1.5rem;
+    .google-map{
+        border:0; 
+        width: 100%;
+        height: 250px;
+    }
+}
+
+@include md{
+.map{
+    margin-top: 0;
+    .google-map{
+        height: 390px;
+    }
+}
+}

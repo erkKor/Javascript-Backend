@@ -1,0 +1,35 @@
+.sale-text{
+    text-align: center;
+    margin-top: 6rem;
+    .container{
+        width: auto;
+        margin: 0 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        box-shadow: 0px 0px 9px -8px rgba(0, 0, 0, 0.75);
+    }
+    a{
+        color: $color-theme;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    
+}
+@include md{
+.sale-text{
+    margin-top: 1rem;
+    a{
+        font-size: 16px;
+    }
+}
+}
+
+@include xl{
+.sale-text{
+    .container{
+        width: 1110px;
+        margin: auto;
+    }
+}
+}

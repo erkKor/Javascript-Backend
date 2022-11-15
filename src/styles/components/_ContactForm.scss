@@ -1,0 +1,87 @@
+.contact-form{
+    margin-top: 2rem;
+    ._container{
+        width: auto;
+    }
+    h3{
+        margin: 1rem 0.5rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    form{
+        margin: 0.5rem 0.5rem;
+
+        input{
+            margin: 0.5rem 0;
+            width: 100%;
+            padding: 15px 18px;
+            border: 1px solid $color-gray-2;
+            outline: none;
+        }
+        textarea{
+            height: 140px;
+            width: 100%;
+            font-family: $font-poppins;
+            border: 1px solid $color-gray-2;
+            padding: 15px 18px;
+            resize: none;
+            outline: none;
+        }
+        button{
+            margin-top: 1rem;
+        }
+
+        .errorMessage{
+            color: $color-theme;
+            font-size: 0.8em;
+            
+        }
+        .errorField{
+            color: $color-theme;
+            border-color: $color-theme !important; 
+        }
+    }
+
+    .submit-succes{
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        border-radius: 0.25rem;
+        padding: 0.2rem 0.5rem;
+        text-align: center;
+    }
+    .submit-fail{
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        border-radius: 0.25rem;
+        padding: 0.2rem 0.5rem;
+        text-align: center;
+    }
+}
+
+@include md{
+.contact-form{
+    form{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;  
+
+        .textarea-container{
+            grid-column: 1 / -1;
+        }
+        
+        button{
+            grid-column: 2 / 1;
+        }
+    }
+}
+}
+
+@include xl{
+.contact-form{
+    ._container{
+        width: 1110px;
+    }
+}
+}

@@ -1,0 +1,62 @@
+.big-sale-banner{
+    margin: 5rem 0;
+    display: flex;
+    justify-content: center;
+    ._container{
+        background-color: $color-gray-21;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        width: $container-small; 
+        background-image: url(/src/assets/images/placeholders/9.png);
+        background-position: center;
+    }
+
+    h3{
+        font-size: 2rem;
+        margin: 0;
+        font-weight: bold;
+    }
+    p{
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+    .button-theme-white{
+        @include buttonSmall;
+    }
+}
+
+@include md{
+.big-sale-banner{
+    ._container{
+        height: 240px;
+    }
+    h3{
+        font-size: $font-size-45;
+    }
+    p{
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+    }
+    .button-theme-white{
+        @include buttonRegular;
+    }
+}
+}
+
+@include xl{
+.big-sale-banner{
+    ._container{
+        height: 320px;
+    }
+    h3{
+        font-size: $font-size-45;
+    }
+}
+}
+

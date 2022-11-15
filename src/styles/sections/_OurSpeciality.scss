@@ -1,0 +1,146 @@
+.our-speciality{
+    margin-top: 3rem;
+    ._container{
+        background-color: $color-gray-0;
+    }
+    .section-title{
+        display: flex;
+        justify-content: center;
+        padding-top: 0.5rem;
+    }
+    .wide-cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3rem 1rem ;
+        gap:1rem;
+        .wide-card{
+            height: 100px;
+            width:100%;
+            background-color: white;
+            display: flex;
+            
+            .card-content{
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 2rem;            
+            }
+            .gray-square{
+                width: 70px;
+                height: 100%;
+                background-color: $color-gray-10;
+            }
+        }
+    }
+    h3{
+        font-size: 14px;
+        margin: 7px 0;
+        font-weight: bold;
+    }
+    a{
+        font-size: 14px;
+        position: relative;
+        color:$color-dark;
+        font-weight: bold;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+        transition: 0.3s ease-in-out;
+        
+        &:hover{
+            color: $color-theme;
+            border-bottom: 1px solid $color-theme;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            background-color: white;
+            width:calc(100% - 93px);
+            height: 1px;
+            bottom: -1px;
+            right: 0;
+        }
+        i{
+            font-size: 10px;
+        }
+    }
+}
+
+
+@include md{
+.our-speciality{
+
+    ._container{
+        height: 250px;
+    }
+    .section-title{
+        padding-top: 1rem;
+    }
+    .wide-cards{
+        flex-direction: row;
+        justify-content: center;
+        padding: 0;
+        .wide-card{
+            height: 150px;
+            width:220px;
+            margin: 0 0.5rem;
+            .card-content{
+                padding-left: 1.5rem;            
+            }
+            .gray-square{
+                width: 60px;
+            }
+        }
+    }
+    
+    h3{
+        font-size: 16px;
+    }
+    a{
+        i{
+            font-size: 12px;
+        }
+    }
+}
+}
+
+@include xl{
+.our-speciality{
+    ._container{
+        height: 400px;
+    }
+    .section-title{
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .wide-cards{
+        justify-content: space-between;
+        padding: 0 3rem;
+        .wide-card{
+            height: 230px;
+            width:490px;
+            margin: 0 1rem;
+            .card-content{
+                padding-left: 2rem;     
+                width: 230px;       
+            }
+            .gray-square{
+                width: 255px;
+            }
+        }
+    }
+
+    h3{
+        font-size: 20px;
+        margin: 14px 0;
+    }
+    a{
+        font-size: 16px;
+        &::after{
+            width:95px;
+        }
+    }
+}
+}

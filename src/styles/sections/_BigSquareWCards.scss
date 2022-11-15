@@ -1,0 +1,158 @@
+.big-square-cards{
+    margin-top: 2rem;
+    ._container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .big-square{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-gray-10;
+        height: 150px;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 16px;
+        h1{
+            margin: 0;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .button-theme-white{
+            @include buttonSmall;
+        }
+    }
+
+    .card-grid{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(2, 164px);
+        grid-template-rows: repeat(2, 340px);
+        gap:1rem;
+        margin:0 2rem;
+    }
+
+    ._card{
+        ._card-background{
+            img{
+                width: 100%;
+            }
+            .button-theme{
+                z-index: 1;
+                bottom: 0px;
+                left: 0;
+                position: absolute;
+                height: 50px;
+                width: 100%;
+                transition: 0.3s ease-in-out;
+            }
+        }
+    }
+}
+
+// #bigSquareLeft{
+//     ._container{
+//         // display: flex;
+//         flex-direction: column-reverse;
+//     }
+// }
+
+// #bigSquareRight{
+//     ._container{
+//         // justify-content: flex-end;
+//         // display: flex;
+//         flex-direction: column-reverse;
+//     }
+// }
+
+
+@include md{
+.big-square-cards{
+    ._container{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .big-square{
+        height: 674px;
+        width: 46%;
+        font-size: 32px;
+        h1{
+            padding: 0 2rem;
+            font-size: 32px;
+        }
+        .button-theme-white{
+            @include buttonRegular;
+        }
+    }
+
+    .card-grid{
+        grid-template-columns: repeat(2, 200px);
+        grid-template-rows: repeat(2, 325px);
+        gap:1.5rem;
+    }
+
+    ._card{
+        ._card-body{
+            align-items: flex-start;
+            .discount-price{
+                margin-left:-5px;
+            }
+        }
+    }
+}
+
+    #bigSquareLeft{
+        ._container{
+            flex-direction: row-reverse;
+        }
+    }
+
+    #bigSquareRight{
+        ._container{
+            flex-direction: row;
+        }
+    }
+}
+
+
+@include xl{
+.big-square-cards{
+    .big-square{
+        width: 49%;
+        font-size: 40px;
+    }
+
+    .card-grid{
+        grid-template-columns: repeat(2, 255px);
+        grid-template-rows: repeat(2, 325px);
+    }
+
+    ._card{
+        &:hover{
+            ._card-background{
+                .button-theme{
+                    bottom:0;
+                }
+            } 
+        }
+        ._card-background{
+            .button-theme{
+                bottom: -60px;
+            }
+        }
+    }
+}
+
+    #bigSquareLeft{
+        .big-square{
+            background-image: url(/src/assets/images/placeholders/7.png);
+        }
+    }
+    #bigSquareRight{
+        .big-square{
+            background-image: url(/src/assets/images/placeholders/8.png);
+        }
+    }
+}

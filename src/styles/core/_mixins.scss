@@ -1,0 +1,79 @@
+@mixin buttonSmall{
+    height: 45px;
+    width: 125px;
+    font-size: 12px;
+    &:hover{
+    .button-theme-border::before,.button-theme-border::after{
+        width:calc(100% - 14px);
+        height: calc(100% - 16px);
+    }
+    }
+    .button-theme-border::before,.button-theme-border::after{
+        position: absolute;
+        content: '';
+        width: 15px;
+        height: 15px;
+        transition: 0.3s linear;
+    }
+}
+
+@mixin  buttonRegular{
+    height: 60px;
+    width: 188px;
+    font-size: 13.33px;
+    &:hover{
+        .button-theme-border::before,.button-theme-border::after{
+            width:calc(100% - 14px);
+            height: calc(100% - 14px);
+        }
+    }
+    .button-theme-border::before,.button-theme-border::after{
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 20px;
+        transition: 0.3s linear;
+    }
+        
+}
+
+
+
+// Breakpoints
+@mixin sm {
+    @media (min-width: #{$breakpoint-sm}) {
+        @content
+    }
+}
+
+@mixin md {
+    @media (min-width: #{$breakpoint-md}) {
+        @content
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$breakpoint-lg}) {
+        @content
+    }
+}
+
+@mixin xl {
+    @media (min-width: #{$breakpoint-xl}) {
+        @content
+    }
+}
+
+@mixin xxl {
+    @media (min-width: #{$breakpoint-xxl}) {
+        @content
+    }
+}
+
+@mixin ul {
+    @media (min-width: #{$breakpoint-ul}) {
+        @content
+    }
+}
+
+
