@@ -4,11 +4,11 @@ import SizeButton from './items/SizeButton'
 import SelectList from './items/SelectList'
 import Tab from './items/Tab'
 import ExternalLinkIcon from './items/ExternalLinkIcon'
-import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartContext, ShoppingCartContextType} from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/CurrencyFormater'
 
-const ProductDetails = ({products}) => {
-    const {incrementQuantity} = useShoppingCart()
+const ProductDetails = ({products} : any) => {
+    const {incrementQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
   return (
     <section className='product-details'>
         <div className='container'>

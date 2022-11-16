@@ -1,7 +1,5 @@
 import React from 'react'
-import GirlOnChair from '../../assets/images/placeholders/girl-on-chair.png'
 import GirlOnChairReal from '../../assets/images/placeholders/1.png'
-import SittingPerson from '../../assets/images/placeholders/sitting-person.png'
 import SittingPersonReal from '../../assets/images/placeholders/2.png'
 import Button from '../items/Button'
 

@@ -5,10 +5,7 @@ import ShoppingCartItem from './items/ShoppingCartItem'
 import { ShoppingCartContextType, ShoppingCartContext } from '../contexts/ShoppingCartContext'
 
 const ShoppingCart: React.FC = () => {
-  // const {cartItems, removeItem} = useShoppingCart()
-      const {cartItems, removeItem} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
-
-  
+  const {cartItems, removeItem} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
   let TotalPrice = 0
   cartItems.map(item => TotalPrice = TotalPrice + item.product.price * item.quantity)

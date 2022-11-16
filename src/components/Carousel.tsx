@@ -10,16 +10,18 @@ const responsive = {
   1024: { items: 4 },
 };
 
-const Carousel = ({items = []}) => {
+
+const Carousel = ({items}: any) => {
   return (
     <section className="carousel">
     <h3>Related Products</h3>
     <AliceCarousel
         mouseTracking
-        items={ items.map(product => <Card key={product.articleNumber} product={product} />)}
+        items={ items.map((product: any) => <Card key={product.articleNumber} product={product} />)}
         responsive={responsive}
         controlsStrategy="alternate"
-        disableDotsControls="false"
+        // disableDotsControls = "false"
+        renderDotsItem={() => {}}
         renderPrevButton={() => {
           return <span className="left-button"><i className="fa-regular fa-chevron-left"></i></span>
         }}
