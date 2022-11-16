@@ -1,16 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartContext, ShoppingCartContextType, useShoppingCart } from '../contexts/ShoppingCartContext'
 import MenuIcon from './items/MenuIcon'
 
-const Navbar = ({headerType}) => {
+interface Props{
+    headerType: string
+}
+
+const Navbar: React.FC<Props> = ({headerType}) => {
     const [showMenu, setShowMenu] = useState(false)
-    const {cartQuantity} = useShoppingCart()
-    const ref = useRef(null);
+    const {cartQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
+    const ref = useRef<HTMLSpanElement>(null!);
 
     useEffect (() => {
         if (cartQuantity === 0){
             const hide = ref.current
+            console.log(ref.current)
             hide.className = "hidden-badge"
         } else if (cartQuantity !== 0){
             const hide = ref.current
@@ -38,7 +43,7 @@ const Navbar = ({headerType}) => {
             <div className="icon-links">
                 <MenuIcon link="/search" icon="fa-light fa-magnifying-glass"/>
                 <MenuIcon hideOnMobile={true} link="/compare" icon="fa-light  fa-code-compare rotate-icon rotate-icon"/>
-                <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" badge="badge" badgeNumber="1"/>
+                <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" />
                 
                 {/* <button className="icon-link btn-icon-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#wishlist" aria-controls="wishlist">
                     <i className="fa-light fa-heart"></i>
