@@ -12,20 +12,6 @@ export const submitData = async (url, method, data, contentType =  'application/
         return true
     }
     return false
-
-//   fetch(url,{
-//     method: method,
-//     headers: {
-//         'Content-Type': contentType
-//     },
-//     body: data
-//   })
-//   .then(res => {
-//     if (res.status === 200){
-//       return true
-//     }
-//     return false
-//   })
 }
 
 

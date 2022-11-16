@@ -6,13 +6,13 @@ import Breadcrumb from '../components/items/Breadcrumb'
 import SaleText from '../components/items/SaleText'
 import Navbar from '../components/Navbar'
 import ProductDetails from '../components/ProductDetails'
-import { useProductContext } from '../contexts/ProductContext'
+import { ProductContext, ProductContextType} from '../contexts/ProductContext'
 
 
 const ProductDetailsView = () => {
     const {id} = useParams()
     const [product, setProducts] = useState({})
-    const {products, getProducts} = useProductContext()
+    const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
 
     useEffect(() => {
         const fetchData = async () =>{

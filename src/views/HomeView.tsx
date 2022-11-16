@@ -10,21 +10,14 @@ import SaleBanner from '../components/sections/SaleBanner'
 import TrippleColumnProducts from '../components/TrippleColumnProducts'
 import InfoIcons from '../components/InfoIcons'
 import Footer from '../components/Footer'
-import { useProductContext } from '../contexts/ProductContext'
+import { ProductContext, ProductContextType} from '../contexts/ProductContext'
 
 const HomeView = () => {
   // window.top.document.title = 'Fixxo.'
-
-  const {products, getProducts} = useProductContext()
-  // const {featured, getFeaturedProducts} = useProductContext()
-  // const {square, getSquareProducts} = useProductContext()
-  // const {tripple, getTrippleProducts} = useProductContext()
+  const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
 
   useEffect(() => {
     getProducts()
-    // getFeaturedProducts(8)
-    // getSquareProducts(4)
-    // getTrippleProducts(3)
   }, [])
 
   let featuredP = products.slice(0,8)
