@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Stars = ({number}) => {
+const Stars = ({number}:any) => {
 
     const stars = Array.from({length: number}, (e, id) =>{
 

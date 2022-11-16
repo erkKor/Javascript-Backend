@@ -1,16 +1,15 @@
 import React from 'react'
 import Button from './Button'
 import { NavLink } from 'react-router-dom'
-import { useShoppingCart } from '../../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
 
-const SmallCard = ({product}) => {
+const SmallCard = ({product}: any) => {
   return (
     <div className="small-card">
         <div className="_card-background">
             <img src={product.imageName} alt={product.name}/>
             <NavLink to={`/products/${product.articleNumber}`}>
-                <Button to="/products" theme='button-theme' themeBorder='button-theme-border'/>
+                <Button theme='button-theme' themeBorder='button-theme-border'/>
             </NavLink>
         </div>
         <div className="_card-body">

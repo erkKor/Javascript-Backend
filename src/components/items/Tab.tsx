@@ -3,12 +3,10 @@ import React, { useState } from 'react'
 const NewTab = () => {
     const [toggleState, setToggleState] = useState(1);
 
-        const toggleTab = (index) => {
+        const toggleTab = (index: React.SetStateAction<number>) => {
             setToggleState(index);
         }
 
-        
- 
   return (
     <div className="container-tab">
       <div className="bloc-tabs">
