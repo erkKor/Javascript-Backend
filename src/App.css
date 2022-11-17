@@ -1432,6 +1432,9 @@ header a:active, header a:hover {
 .carousel ._card img {
   width: 100%;
 }
+.carousel ._card .button-theme {
+  left: 0;
+}
 .carousel h3 {
   margin: 0.6rem 1rem;
   font-weight: bold;

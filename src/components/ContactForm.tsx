@@ -2,16 +2,21 @@ import React, { useState } from 'react'
 import { submitData, validate } from '../assets/scripts/validation'
 
 const ContactForm = () => {
-  let currentPage = "Contact Us"
+  // let currentPage = "Contact Us"
   // window.top.document.title = `${currentPage} || Fixxo` 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [comments, setComments] = useState('')
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({
+    name,
+    email,
+    comments
+  })
   const [submitted, setSubmitted] = useState(false)
   const [failedSubmitted, setFailedSubmitted] = useState(false)
 
-  const handleChange = (e) => {
+
+  const handleChange = (e:any) => {
     const {id, value} = e.target
     switch(id) {
       case 'name':
@@ -27,8 +32,8 @@ const ContactForm = () => {
 
     setErrors({...errors, [id]: validate(e)})
   }
-
-  const handleSubmit = async (e) => {
+ 
+  const handleSubmit = async (e:any) => {
     e.preventDefault()
     setFailedSubmitted(false)
     setSubmitted(false)
@@ -40,7 +45,11 @@ const ContactForm = () => {
         setName('')
         setEmail('')
         setComments('')
-        setErrors({})
+        // setErrors({
+        //   name,
+        //   email,
+        //   comments
+        // })
         
       if (await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json, )) {
         setSubmitted(true)
@@ -54,9 +63,6 @@ const ContactForm = () => {
       setSubmitted(false)
     }
   }
-
-
-
 
   return (
     <section className="contact-form mt-5">

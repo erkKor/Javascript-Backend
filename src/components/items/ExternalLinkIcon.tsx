@@ -1,13 +1,13 @@
 import React from 'react'
 
 interface Props{
-  link:string
+  link: string
   icon: string
 }
 
 const ExternalLinkIcon: React.FC<Props> = ({link, icon}) => {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noreferrer">
         <i className={icon}></i>
     </a>
   )

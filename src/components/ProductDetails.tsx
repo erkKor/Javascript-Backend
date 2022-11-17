@@ -21,7 +21,7 @@ const ProductDetails = ({products} : any) => {
                         <img src={products.imageName} alt={products.name}/>
                     </div>
                     <div className='image-squares'>
-                        <img src={products.imageName} alt={products.name}/>
+                        <img src={products.imageName} alt={products.name}/>  
                     </div>
                     <div className='image-squares'>
                         <img src={products.imageName} alt={products.name}/>

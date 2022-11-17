@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { ShoppingCartContext, ShoppingCartContextType, useShoppingCart } from '../contexts/ShoppingCartContext'
+import { ShoppingCartContext, ShoppingCartContextType } from '../contexts/ShoppingCartContext'
 import MenuIcon from './items/MenuIcon'
 
 interface Props{
@@ -15,7 +15,6 @@ const Navbar: React.FC<Props> = ({headerType}) => {
     useEffect (() => {
         if (cartQuantity === 0){
             const hide = ref.current
-            console.log(ref.current)
             hide.className = "hidden-badge"
         } else if (cartQuantity !== 0){
             const hide = ref.current

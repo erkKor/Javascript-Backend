@@ -8,9 +8,6 @@ export interface TodoContextType{
     handleSubmit: (e: React.FormEvent ) => void
 }
 
-interface ITodoProviderProps {
-    children: any
-}
 
 export const TodoContext = createContext<TodoContextType | null>(null);
 
@@ -18,7 +15,7 @@ export const useTodoContext = () => {
     return useContext(TodoContext)
 }
 
-const TodoProvider = ({children} : ITodoProviderProps) => {
+const TodoProvider = ({children} : any) => {
     const [todo, setTodo] = useState<string>('')
     const [todos, setTodos] = useState<Todo[]>([])
 
