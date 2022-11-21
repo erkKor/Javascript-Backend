@@ -37,7 +37,7 @@ export const validate = (e:any, form?:any) => {
 }
 
 
-const validate_name = (value:any) => {
+const validate_name = (value:string) => {
     if (!value)
         return 'Name is required'
     else if (value.length < 2)
@@ -46,7 +46,7 @@ const validate_name = (value:any) => {
         return null
 }
 
-const validate_email = (value:any) => {
+const validate_email = (value:string) => {
     const regex_email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     
     if (!value)
@@ -57,7 +57,7 @@ const validate_email = (value:any) => {
         return null
 }
 
-const validate_comments = (value:any) => {
+const validate_comments = (value:string) => {
     if (!value)
         return 'A comment is required'
     else if (value.length < 5)

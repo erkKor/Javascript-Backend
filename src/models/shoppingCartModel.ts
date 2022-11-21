@@ -1,5 +1,7 @@
+import { Url } from "url"
+
 export interface CartItem {
-    quantity: any
+    quantity: number
     product: any
     articleNumber: any
     name: string
@@ -7,5 +9,5 @@ export interface CartItem {
     category: string
     price: number
     rating: number
-    imageName: any
+    imageName: Url
 }
