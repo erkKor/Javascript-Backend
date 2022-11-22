@@ -17,7 +17,7 @@ export interface IProductContext{
 export const OwnProductContext = createContext<IProductContext | null>(null)
 export const useProductContext = () => { return useContext(OwnProductContext)}
 
-export const ProductProvider = ({children}: any) => {
+export const OwnProductProvider = ({children}: any) => {
     const baseUrl = 'http://localhost:5000/api/users'
     const product_default: Product = {id:0, name: '', category: '', price:0, rating:0, imageName: ''}
     const productRequest_default: ProductRequest = {name: '', category: '', price:0, rating:0, imageName: ''}
@@ -85,4 +85,4 @@ export const ProductProvider = ({children}: any) => {
   )
 }
 
-export default ProductProvider
+export default OwnProductProvider

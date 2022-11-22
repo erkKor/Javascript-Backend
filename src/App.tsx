@@ -4,6 +4,7 @@ import TodoProvider  from './contexts/TodoContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 import { ProductProvider } from './contexts/ProductContext';
+import { OwnProductProvider } from './contexts/OwnProductContext';
 // import UserProvider from './contexts/UserContext'
 
 import HomeView from "./views/HomeView";
@@ -14,7 +15,11 @@ import ContactView from "./views/ContactView";
 import SearchView from "./views/SearchView"
 import CompareView from "./views/CompareView"
 import NotFoundView from "./views/NotFoundView";
+import CreateProductView from './views/CreateProductView';
+
 import UserProvider from './contexts/UserContext';
+
+
 
 const App: React.FC = () => {
 
@@ -24,6 +29,7 @@ const App: React.FC = () => {
       <UserProvider>
       <ShoppingCartProvider>
       <ProductProvider>
+      <OwnProductProvider>
         <Routes>
         <Route path="/" element={<HomeView />}/>
         <Route path="/Products" element={<ProductsView/>}/>
@@ -32,8 +38,10 @@ const App: React.FC = () => {
         <Route path="/Contacts" element={<ContactView />}/>
         <Route path="/Search" element={<SearchView />}/>
         <Route path="/Compare" element={<CompareView />}/>
+        <Route path="/Create" element={<CreateProductView />}/>
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
+      </OwnProductProvider>
       </ProductProvider>
       </ShoppingCartProvider>
       </UserProvider>

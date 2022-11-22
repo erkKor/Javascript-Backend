@@ -2316,3 +2316,7 @@ header a:active, header a:hover {
     width: auto;
   }
 }
+.create {
+  margin: 0 auto;
+  width: 500px;
+}
