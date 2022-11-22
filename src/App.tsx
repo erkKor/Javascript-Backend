@@ -4,7 +4,7 @@ import TodoProvider  from './contexts/TodoContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 import { ProductProvider } from './contexts/ProductContext';
-// import UserContext from './contexts/UserContext'
+// import UserProvider from './contexts/UserContext'
 
 import HomeView from "./views/HomeView";
 import ProductsView from "./views/ProductsView";
