@@ -11,9 +11,9 @@ const AddProducts = () => {
         <input value={productRequest.name} onChange={(e) => setProductRequest({...productRequest, name: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter name..."/>
         <input value={productRequest.category} onChange={(e) => setProductRequest({...productRequest, category: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter category..."/>
         <input value={productRequest.price} onChange={(e) => setProductRequest({...productRequest, price: +e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter price..."/>
-        <input value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: +e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter rating..."/>
+        <input value={productRequest.rating} onChange={(e) => setProductRequest({...productRequest, rating: +e.target.value})} type="text" max="5" className="form-control py-2 mb-3" placeholder="Enter rating..."/>
         <input value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Url Link (optional)"/>
-        <button type="submit" className="button-theme">Create User</button>
+        <button type="submit" className="button-theme">Add Product</button>
     </form>
   )
 }

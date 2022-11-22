@@ -21,7 +21,7 @@ const ProductList = () => {
     {
       
       // users.map((user: User) => (<div onClick={() => removeUser(user.id)} key={user.id} className="mb-3">{user.firstName} {user.lastName}</div>))
-      products.map((product: Product) => (<div key={product.id} className="mb-3">{product.name} {product.category}</div>))
+      products.map((product: Product) => (<div key={product.articleNumber} className="mb-3">{product.name} {product.category}</div>))
     }
     </>
   )

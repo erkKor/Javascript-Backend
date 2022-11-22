@@ -2,7 +2,7 @@ import { Url } from "url"
 
 // Hämta användare
 export interface Product{
-    id: number,
+    articleNumber: number,
     name: string,
     category: string,
     price: number,
