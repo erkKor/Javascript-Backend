@@ -16,16 +16,11 @@ import SearchView from "./views/SearchView"
 import CompareView from "./views/CompareView"
 import NotFoundView from "./views/NotFoundView";
 import ManageView from './views/ManageView';
-
-import UserProvider from './contexts/UserContext';
-
 import AddProductView from './views/AddProductView';
 import UpdateProductsView from './views/UpdateProductView';
-
-
+import UserProvider from './contexts/UserContext';
 
 const App: React.FC = () => {
-
   return (
     <BrowserRouter>
       <TodoProvider>
@@ -44,7 +39,6 @@ const App: React.FC = () => {
         <Route path="/Manage" element={<ManageView />}/>
           <Route path="/Manage/Create" element={<AddProductView />}/>
           <Route path="/Manage/:id" element={<UpdateProductsView />}/>
-          
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </OwnProductProvider>

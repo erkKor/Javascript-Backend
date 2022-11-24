@@ -5,25 +5,14 @@ import AddProducts from '../components/OWNPRODUCTS/AddProducts'
 import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
 import ProductList from '../components/OWNPRODUCTS/ProductList'
 import { OwnProductContext, IProductContext} from '../contexts/OwnProductContext'
+import Breadcrumb from '../components/items/Breadcrumb'
 
 const CreateProductView = () => {
-  const {products, getAll, create} = React.useContext(OwnProductContext) as IProductContext
-
-
-  // const isInitialMount = useRef(false);
-
-  // useEffect(() => {
-  //   if (isInitialMount.current) {
-  //     isInitialMount.current = true;
-  //   } else {
-  //     getAll()
-  //   }
-  // }, []);
+  const {products, getAll, setProduct} = React.useContext(OwnProductContext) as IProductContext
 
   useEffect(() => {
     getAll()
-  }, [])
-
+  }, [setProduct])
 
   // let addedProducts = products
   // let squareP1 = products.slice(8,12)
@@ -34,6 +23,7 @@ const CreateProductView = () => {
   return (
     <>
     <Navbar headerType='header-light'/>
+    <Breadcrumb />
     <div className="_container manage-choices">
       <h3>Manage products</h3>
       {/* <NavLink to="/Manage/Create" end className="manage-links">Add Product</NavLink> */}

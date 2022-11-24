@@ -2347,3 +2347,30 @@ header a:active, header a:hover {
 .added-products ._card .button-theme {
   display: none;
 }
+
+.update-products {
+  margin-top: 2rem;
+}
+.update-products h3 {
+  text-align: center;
+}
+.update-products label {
+  font-weight: 500;
+}
+.update-products .button-theme {
+  width: 100%;
+}
+
+.update-info {
+  display: flex;
+  justify-content: center;
+}
+.update-info ._card {
+  width: 250px;
+}
+.update-info ._card ._card-menu {
+  display: none;
+}
+.update-info ._card .button-theme {
+  display: none;
+}

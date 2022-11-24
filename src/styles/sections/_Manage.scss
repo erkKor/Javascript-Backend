@@ -3,13 +3,11 @@
    width: 500px;
 }
 
-
 .manage-choices{
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     .manage-links{
         text-decoration: none;
         // border: 1px solid black;
@@ -36,3 +34,32 @@
         }
     }
 }
+
+.update-products{
+    margin-top: 2rem;
+    h3{
+        text-align: center;
+    }
+    label{
+        font-weight: 500;
+    }
+
+    .button-theme{
+        width: 100%;
+    }
+}
+.update-info{
+    display: flex;
+    justify-content: center;
+    ._card{
+        width: 250px;
+        ._card-menu{
+            display: none;
+        }
+        .button-theme{
+            display: none;
+        }
+    }
+}
+
+
