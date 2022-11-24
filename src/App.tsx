@@ -15,9 +15,12 @@ import ContactView from "./views/ContactView";
 import SearchView from "./views/SearchView"
 import CompareView from "./views/CompareView"
 import NotFoundView from "./views/NotFoundView";
-import CreateProductView from './views/CreateProductView';
+import ManageView from './views/ManageView';
 
 import UserProvider from './contexts/UserContext';
+
+import AddProductView from './views/AddProductView';
+import UpdateProductsView from './views/UpdateProductView';
 
 
 
@@ -38,7 +41,10 @@ const App: React.FC = () => {
         <Route path="/Contacts" element={<ContactView />}/>
         <Route path="/Search" element={<SearchView />}/>
         <Route path="/Compare" element={<CompareView />}/>
-        <Route path="/Create" element={<CreateProductView />}/>
+        <Route path="/Manage" element={<ManageView />}/>
+          <Route path="/Manage/Create" element={<AddProductView />}/>
+          <Route path="/Manage/:id" element={<UpdateProductsView />}/>
+          
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </OwnProductProvider>

@@ -1,0 +1,38 @@
+.create{
+    margin: 0 auto;
+   width: 500px;
+}
+
+
+.manage-choices{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .manage-links{
+        text-decoration: none;
+        // border: 1px solid black;
+        background-color: $color-theme;
+        text-align: center;
+        color: white;
+        width: 250px;
+        padding: 10px 20px;
+        margin-bottom: 1rem;
+        transition: 0.3s ease-in-out;
+        &:hover{
+            background-color: $color-dark;
+        }
+    }
+}
+
+.added-products{
+    ._card{
+        ._card-menu{
+            display: none;
+        }
+        .button-theme{
+            display: none;
+        }
+    }
+}

@@ -38,7 +38,7 @@ const Navbar: React.FC<Props> = ({headerType}) => {
                 <NavLink to="/categories" end>Categories</NavLink>
                 <NavLink to="/products" end>Products</NavLink>
                 <NavLink to="/contacts" end>Contacts</NavLink>
-                <NavLink to="/Create" end>Add Product</NavLink>
+                <NavLink to="/Manage" end>Manage</NavLink>
             </div>
             <div className="icon-links">
                 <MenuIcon link="/search" icon="fa-light fa-magnifying-glass"/>

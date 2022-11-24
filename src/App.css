@@ -2320,3 +2320,30 @@ header a:active, header a:hover {
   margin: 0 auto;
   width: 500px;
 }
+
+.manage-choices {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.manage-choices .manage-links {
+  text-decoration: none;
+  background-color: #FF7373;
+  text-align: center;
+  color: white;
+  width: 250px;
+  padding: 10px 20px;
+  margin-bottom: 1rem;
+  transition: 0.3s ease-in-out;
+}
+.manage-choices .manage-links:hover {
+  background-color: #222529;
+}
+
+.added-products ._card ._card-menu {
+  display: none;
+}
+.added-products ._card .button-theme {
+  display: none;
+}
