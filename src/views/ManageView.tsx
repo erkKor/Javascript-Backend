@@ -12,7 +12,7 @@ const CreateProductView = () => {
 
   useEffect(() => {
     getAll()
-  }, [setProduct])
+  }, [])
 
   // let addedProducts = products
 

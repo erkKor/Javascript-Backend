@@ -11,13 +11,21 @@ import TrippleColumnProducts from '../components/TrippleColumnProducts'
 import InfoIcons from '../components/InfoIcons'
 import Footer from '../components/Footer'
 import { ProductContext, ProductContextType} from '../contexts/ProductContext'
+import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
 
 const HomeView = () => {
   // window.top.document.title = 'Fixxo.'
-  const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
+  // const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
+
+  // useEffect(() => {
+  //   getProducts()
+  // }, [])
+
+
+  const {products, getAll} = React.useContext(OwnProductContext) as IProductContext
 
   useEffect(() => {
-    getProducts()
+    getAll()
   }, [])
 
   let featuredP = products.slice(0,8)
