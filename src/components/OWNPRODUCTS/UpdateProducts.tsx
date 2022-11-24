@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { OwnProductContext, IProductContext } from '../../contexts/OwnProductContext'
-
 
 const UpdateProducts = () => {
   const {product, setProduct, update } = React.useContext(OwnProductContext) as IProductContext
 
   return (
     <form onSubmit={update} className="d-grid mb-5 create update-products">
-      <h3>Update User</h3>
+      <h3>Update Product Info</h3>
       <input type="hidden" value={product.articleNumber}/> 
         <label>Product Category</label>
         <input value={product.category} onChange={(e) => setProduct({...product, category: e.target.value})} type="text" className="form-control py-2 mb-2" placeholder="Enter category..."/>
