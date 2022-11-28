@@ -49,6 +49,8 @@
             height: 30px;
             font-size: 20px;
             transition: 0.3s ease-in-out;
+            color: $color-dark;
+            text-align: center;
             &:hover{
                 background-color: $color-dark;
                 color: white;
@@ -56,17 +58,23 @@
                     color: white;
                 }
             }
-            a{
-                text-decoration: none;
-                color: $color-dark;
-            }
         }
     }
 }
 
 .update-products{
-    h3{
-        text-align: center;
+    .top-bar{
+        display: flex;
+        align-items: center;
+
+        h3{
+            text-align: center;
+        }
+        .back-arrow{
+            color:$color-dark;
+            font-size: 26px;
+            margin-right: 5rem;
+        }
     }
     label{
         font-weight: 500;

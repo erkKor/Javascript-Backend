@@ -14,7 +14,6 @@ export const submitData = async (url:any, method:any, data:any, contentType =  '
     return false
 }
 
-
 export const validate = (e:any, form?:any) => {
    if (e.type === 'submit') {
     const errors:any = {}
@@ -35,7 +34,6 @@ export const validate = (e:any, form?:any) => {
         }
    }
 }
-
 
 const validate_name = (value:string) => {
     if (!value)
@@ -65,3 +63,73 @@ const validate_comments = (value:string) => {
     else
         return null
 }
+
+
+
+
+
+
+
+
+const validate_product = (value:string) => {
+    if (!value)
+        return '*'
+    else if (value.length < 2)
+        return 'Product must contain atleast 2 characters'
+    else
+        return null
+
+}
+const validate_rating = (value:string) => {
+    if (!value)
+        return '*'
+    else if (value.length <= 5)
+        return 'Rating cannot be higher than 5'
+    else
+        return null
+}
+
+
+export const validateProducts = (e:any, form?:any) => {
+    if (e.type === 'submit') {
+     const errors:any = {}
+     errors.name = validate_product(form.name)
+     errors.category = validate_product(form.email)
+     errors.price = validate_product(form.comments)
+     errors.rating = validate_rating(form.comments)
+     return errors
+ 
+    } else {
+         const {id, value} = e.target
+         switch(id) {
+             case 'name':
+                 return validate_product(value)
+             case 'category':
+                 return validate_product(value)
+             case 'price':
+                 return validate_product(value)
+             case 'rating':
+                 return validate_rating(value)
+         }
+    }
+ }
+
+
+
+
+ export const validateInput = () => {
+    // Get the value of the input field with id="numb"
+    // let x = document.getElementById("numb").value;
+    
+    let x = (document.getElementById("price") as HTMLInputElement).value;
+    let y = parseInt(x)
+    
+    // If x is Not a Number or less than one or greater than 10
+    let text;
+    if (isNaN(y) || y < 1 || y > 10) {
+      text = "Input not valid";
+    } else {
+      text = "Input OK";
+    }
+    (document.getElementById("demo") as HTMLElement).innerText = text;
+  }

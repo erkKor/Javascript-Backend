@@ -38,12 +38,16 @@ export const OwnProductProvider = ({children}: any) => {
         })
         if (result.status === 201){
             setProductRequest(productRequest_default)
+            const _product = await result.json()
+
+            setProducts(prevProducts => {
+                return [...prevProducts, _product]
+            })
         }else{
             console.log('error')
         }
-            
-        
     }
+
     const get = async (articleNumber: number) => {
         const result = await fetch(`${baseUrl}/${articleNumber}`)
         if (result.status === 200)
@@ -73,8 +77,11 @@ export const OwnProductProvider = ({children}: any) => {
             method: 'delete',
         })
 
-        if (result.status === 204)
-            setProduct(product_default)
+        if (result.status === 204){
+            setProduct(product_default)  
+            
+            console.log(result.json())
+        }
     }
 
     

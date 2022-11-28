@@ -8,7 +8,7 @@ import { OwnProductContext, IProductContext} from '../contexts/OwnProductContext
 import Breadcrumb from '../components/items/Breadcrumb'
 
 const CreateProductView = () => {
-  const {products, getAll, setProduct} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll, remove} = React.useContext(OwnProductContext) as IProductContext
 
   useEffect(() => {
     getAll()

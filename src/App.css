@@ -2362,6 +2362,8 @@ header a:active, header a:hover {
   height: 30px;
   font-size: 20px;
   transition: 0.3s ease-in-out;
+  color: #222529;
+  text-align: center;
 }
 .added-products .edit-buttons .edit-button:hover {
   background-color: #222529;
@@ -2370,13 +2372,18 @@ header a:active, header a:hover {
 .added-products .edit-buttons .edit-button:hover a {
   color: white;
 }
-.added-products .edit-buttons .edit-button a {
-  text-decoration: none;
-  color: #222529;
-}
 
-.update-products h3 {
+.update-products .top-bar {
+  display: flex;
+  align-items: center;
+}
+.update-products .top-bar h3 {
   text-align: center;
+}
+.update-products .top-bar .back-arrow {
+  color: #222529;
+  font-size: 26px;
+  margin-right: 5rem;
 }
 .update-products label {
   font-weight: 500;
