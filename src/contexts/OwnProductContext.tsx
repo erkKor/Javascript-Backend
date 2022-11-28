@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { arrayBuffer } from 'stream/consumers'
 import { Product, ProductRequest } from '../models/ProductModel'
 
 export interface IProductContext{
@@ -79,8 +80,9 @@ export const OwnProductProvider = ({children}: any) => {
 
         if (result.status === 204){
             setProduct(product_default)  
-            
-            console.log(result.json())
+            setProducts(productsVADSOM => {
+                return productsVADSOM.filter(productHEHE => productHEHE.articleNumber !== articleNumber)
+            })
         }
     }
 

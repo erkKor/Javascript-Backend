@@ -94,8 +94,8 @@ export const validateProducts = (e:any, form?:any) => {
     if (e.type === 'submit') {
      const errors:any = {}
      errors.name = validate_product(form.name)
-     errors.category = validate_product(form.email)
-     errors.price = validate_product(form.comments)
+     errors.category = validate_product(form.product)
+     errors.price = validate_product(form.pro)
      errors.rating = validate_rating(form.comments)
      return errors
  
@@ -121,15 +121,21 @@ export const validateProducts = (e:any, form?:any) => {
     // Get the value of the input field with id="numb"
     // let x = document.getElementById("numb").value;
     
-    let x = (document.getElementById("price") as HTMLInputElement).value;
+    let x = (document.getElementById("rating") as HTMLInputElement).value;
     let y = parseInt(x)
     
     // If x is Not a Number or less than one or greater than 10
     let text;
-    if (isNaN(y) || y < 1 || y > 10) {
+    if (isNaN(y) || y < 0 || y > 5) {
       text = "Input not valid";
     } else {
       text = "Input OK";
     }
     (document.getElementById("demo") as HTMLElement).innerText = text;
+  }
+
+  export const KeyUpValidate = (e:any) =>{
+    const id = e.target.id
+    const value = e.target.value
+    
   }
