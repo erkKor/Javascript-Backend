@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const NewTab = () => {
+const NewTab: React.FC = () => {
     const [toggleState, setToggleState] = useState(1);
 
         const toggleTab = (index: React.SetStateAction<number>) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SelectList = () => {
+const SelectList: React.FC = () => {
 
   return (
     <div className="color-select-container">

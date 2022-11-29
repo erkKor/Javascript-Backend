@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Stars = ({number}:any) => {
+const Stars = ({ratingNumber}:any) => {
 
-    const stars = Array.from({length: number}, (_e, id) =>{
+    const stars = Array.from({length: ratingNumber}, (_e, id) =>{
 
     return (
         <i className="fa-sharp fa-solid fa-star" key={id}></i>

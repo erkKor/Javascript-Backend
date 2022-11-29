@@ -127,80 +127,79 @@ export const validateProducts = (e:React.ChangeEvent<HTMLInputElement>, form?:an
 
 
 
- export const validateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const id = e.target.id
-    // const value = e.target.value    
-    let x = (document.getElementById(id) as HTMLInputElement).value;
-    let y = parseInt(x)
-    let text;
+//  export const validateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const id = e.target.id
+//     // const value = e.target.value    
+//     let x = (document.getElementById(id) as HTMLInputElement).value;
+//     let y = parseInt(x)
+//     let text;
 
-    switch(id) {
-      case 'name':
-        if (x.length < 2){
-            text = "Product name must have atleast 2 characters"
-        }
-        else{
-            text= ""
-        }
-        (document.getElementById("errorName") as HTMLElement).innerText = text;
-            break
+//     switch(id) {
+//       case 'name':
+//         if (x.length < 2){
+//             text = "Product name must have atleast 2 characters"
+//         }
+//         else{
+//             text= ""
+//         }
+//         (document.getElementById("errorName") as HTMLElement).innerText = text;
+//             break
             
-      case 'category':
-        if (x.length < 2){
-            text = "Product category must have atleast 2 characters"
-        }
-        else{
-            text= ""
-        }
-        (document.getElementById("errorCategory") as HTMLElement).innerText = text;
-            break
-      case 'price':
-        if (isNaN(y) || y <= 0 ) {
-            text = "Price can't be 0";
-          } else {
-            text = "";
-          }
-          (document.getElementById("errorPrice") as HTMLElement).innerText = text;
-            break
-      case 'rating':
-        if (isNaN(y) || y < 0 || y > 5) {
-            text = "Rating needs to be between 0-5";
-          } else {
-            text = "";
-          }
-          (document.getElementById("errorRating") as HTMLElement).innerText = text;
-            break
-    }
-  }
+//       case 'category':
+//         if (x.length < 2){
+//             text = "Product category must have atleast 2 characters"
+//         }
+//         else{
+//             text= ""
+//         }
+//         (document.getElementById("errorCategory") as HTMLElement).innerText = text;
+//             break
+//       case 'price':
+//         if (isNaN(y) || y <= 0 ) {
+//             text = "Price can't be 0";
+//           } else {
+//             text = "";
+//           }
+//           (document.getElementById("errorPrice") as HTMLElement).innerText = text;
+//             break
+//       case 'rating':
+//         if (isNaN(y) || y < 0 || y > 5) {
+//             text = "Rating needs to be between 0-5";
+//           } else {
+//             text = "";
+//           }
+//           (document.getElementById("errorRating") as HTMLElement).innerText = text;
+//             break
+//     }
+//   }
 
 
-  
-  export const KeyUpValidate = (e:any) =>{
-    const id = e.target.id
-    const value = e.target.value
-    const error = {}
+//   export const KeyUpValidate = (e:any) =>{
+//     const id = e.target.id
+//     const value = e.target.value
+//     const error = {}
 
-    const regName = value.length > 2
+//     const regName = value.length > 2
 
-    switch(id) {
-        case 'name':
-            if (value.match(regName)){
-                e.target.classList.remove("errorField")
-                // setFormErrors(error)
-            }else{
+//     switch(id) {
+//         case 'name':
+//             if (value.match(regName)){
+//                 e.target.classList.remove("errorField")
+//                 // setFormErrors(error)
+//             }else{
 
-            }
+//             }
             
-            break;
-        case 'category':
-            return validate_product(value)
-        case 'price':
-            return validate_product(value)
-        case 'rating':
-            return validate_rating(value)
+//             break;
+//         case 'category':
+//             return validate_product(value)
+//         case 'price':
+//             return validate_product(value)
+//         case 'rating':
+//             return validate_rating(value)
         
-    }
-  }
+//     }
+//   }
 
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import YellowSweater from '../../assets/images/placeholders/3.png'
 import GuyStanding from '../../assets/images/placeholders/4.png'
 
-const ShowcaseCardBigSmall = () => {
+const ShowcaseCardBigSmall: React.FC = () => {
   return (
     <section className="showcasecard-big-small">
         <div className="_container">

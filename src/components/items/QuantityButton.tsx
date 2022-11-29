@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const QuantityButton = () => {
+const QuantityButton: React.FC = () => {
 
     const [quantity, setQuantity] = useState(1)
 

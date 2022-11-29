@@ -2,7 +2,7 @@ import React from 'react'
 import Pamela from '../../assets/images/placeholders/5.png'
 import OrangeJacket from '../../assets/images/placeholders/6.png'
 
-const ShowcaseCardDouble = () => {
+const ShowcaseCardDouble: React.FC = () => {
   return (
     <section className="double-showcase-card">
         <div className="_container">

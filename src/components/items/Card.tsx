@@ -33,7 +33,7 @@ const Card: React.FC<CardType> = ({product}) => {
             <p>{product.category}</p>
             <h3>{product.name}</h3>
             <div className="stars">
-                 <Stars number={product.rating}/>
+                 <Stars ratingNumber={product.rating}/>
             </div>
             <div className="_card-prices"> 
                 <div className="original-price"></div>

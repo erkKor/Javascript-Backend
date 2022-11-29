@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { OwnProductContext, IProductContext } from '../../contexts/OwnProductContext'
 
-const UpdateProducts = () => {
+const UpdateProducts: React.FC = () => {
   const {product, setProduct, update } = React.useContext(OwnProductContext) as IProductContext
 
   return (

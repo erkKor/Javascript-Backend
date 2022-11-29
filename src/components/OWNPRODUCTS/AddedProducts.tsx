@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { OwnProductContext, IProductContext } from '../../contexts/OwnProductContext'
+import { Product } from '../../models/ProductModel'
 import Card from '../items/Card'
 
+interface AddedProductsTypes{
+  items: Product[]
+  title: string
+}
 
-const AddedProducts = ({title,items}:any) => {
+const AddedProducts: React.FC<AddedProductsTypes> = ({title,items}) => {
   const {getAll, remove} = React.useContext(OwnProductContext) as IProductContext
 
   useEffect(() => {
@@ -24,7 +29,7 @@ const AddedProducts = ({title,items}:any) => {
             </div>
             <div className="card-grid">
                 {
-                  items.map((product:any) => 
+                  items.map((product) => 
                   <div key={product.articleNumber}>
                     <Card  product={product} />
                     <div className="edit-buttons">

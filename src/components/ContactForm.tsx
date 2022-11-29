@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { submitData, validate } from '../assets/scripts/validation'
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
   // let currentPage = "Contact Us"
   // window.top.document.title = `${currentPage} || Fixxo` 
   const [name, setName] = useState('')

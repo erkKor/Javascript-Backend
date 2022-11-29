@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Filler = () => {
+const Filler: React.FC = () => {
   return (
     <div className="filler"></div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SizeButton = () => {
+const SizeButton: React.FC = () => {
   return (
     <div className="size-btn-container">
       <label className="radio-sizebtn">

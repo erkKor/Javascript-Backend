@@ -3,7 +3,7 @@ import GirlOnChairReal from '../../assets/images/placeholders/1.png'
 import SittingPersonReal from '../../assets/images/placeholders/2.png'
 import Button from '../items/Button'
 
-const Showcase = () => {
+const Showcase: React.FC = () => {
   return (
     <section className="showcase">
         <div className="_container">

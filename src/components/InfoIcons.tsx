@@ -3,7 +3,7 @@ import CustomerSupport from '../assets/images/icons/customer-support.svg'
 import SecuredPayment from '../assets/images/icons/secure-payment.svg'
 import DeliveryTruck from '../assets/images/icons/delivery-truck.svg'
 
-const InfoIcons = () => {
+const InfoIcons: React.FC = () => {
   return (
     <section className="info-icons">
         <div className="_container">

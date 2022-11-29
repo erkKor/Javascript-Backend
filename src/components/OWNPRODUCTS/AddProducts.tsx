@@ -3,7 +3,7 @@ import { validateProducts } from '../../assets/scripts/validation'
 import { IProductContext, OwnProductContext } from '../../contexts/OwnProductContext'
 
 
-const AddProducts = () => {
+const AddProducts: React.FC = () => {
   const { productRequest, setProductRequest, create } = React.useContext(OwnProductContext) as IProductContext
 
   const [name, setName] = useState('')
@@ -17,7 +17,7 @@ const AddProducts = () => {
     rating
   })
 
-  const handleChange = (e:any) => {
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const {id, value} = e.target
     switch(id) {
       case 'name':
@@ -37,7 +37,7 @@ const AddProducts = () => {
     setErrors({...errors, [id]: validateProducts(e)})
   }
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault()
     setErrors(validateProducts(e, {name, category, price, rating}))
 

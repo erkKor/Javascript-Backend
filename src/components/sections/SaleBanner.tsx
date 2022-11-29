@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SaleBanner = () => {
+const SaleBanner: React.FC = () => {
   return (
     <section className="big-sale-banner">
         <div className="_container">

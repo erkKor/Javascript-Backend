@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const SaleText = () => {
+const SaleText: React.FC = () => {
   return (
     <section className="sale-text">
         <div className="container">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OurSpeciality = () => {
+const OurSpeciality: React.FC = () => {
   return (
     <section className="our-speciality">
         <div className="_container">
