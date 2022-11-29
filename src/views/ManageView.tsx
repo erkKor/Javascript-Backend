@@ -1,14 +1,13 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import AddProducts from '../components/OWNPRODUCTS/AddProducts'
 import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
-import ProductList from '../components/OWNPRODUCTS/ProductList'
-import { OwnProductContext, IProductContext} from '../contexts/OwnProductContext'
+import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
 import Breadcrumb from '../components/items/Breadcrumb'
 
 const CreateProductView = () => {
-  const {products, getAll, remove} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll} = React.useContext(OwnProductContext) as IProductContext
 
   useEffect(() => {
     getAll()

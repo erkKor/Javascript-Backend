@@ -66,24 +66,33 @@ const validate_comments = (value:string) => {
 
 
 
-
-
+// ########################## EGNA GREJER #######################################################
+// ########################## EGNA GREJER #######################################################
+// ########################## EGNA GREJER #######################################################
 
 
 
 const validate_product = (value:string) => {
     if (!value)
-        return '*'
+        return 'Field is required'
     else if (value.length < 2)
         return 'Product must contain atleast 2 characters'
     else
         return null
 
 }
-const validate_rating = (value:string) => {
+const validate_price = (value:number) => {
     if (!value)
-        return '*'
-    else if (value.length <= 5)
+        return 'Price cannot be 0'
+    else if (value <= 0)
+        return 'Price cannot be 0'
+    else
+        return null
+}
+const validate_rating = (value:number) => {
+    if (!value)
+        return 'You must enter a rating'
+    else if (value > 5)
         return 'Rating cannot be higher than 5'
     else
         return null
@@ -94,9 +103,9 @@ export const validateProducts = (e:any, form?:any) => {
     if (e.type === 'submit') {
      const errors:any = {}
      errors.name = validate_product(form.name)
-     errors.category = validate_product(form.product)
-     errors.price = validate_product(form.pro)
-     errors.rating = validate_rating(form.comments)
+     errors.category = validate_product(form.category)
+     errors.price = validate_price(form.price)
+     errors.rating = validate_rating(form.rating)
      return errors
  
     } else {
@@ -107,7 +116,7 @@ export const validateProducts = (e:any, form?:any) => {
              case 'category':
                  return validate_product(value)
              case 'price':
-                 return validate_product(value)
+                 return validate_price(value)
              case 'rating':
                  return validate_rating(value)
          }
@@ -117,25 +126,88 @@ export const validateProducts = (e:any, form?:any) => {
 
 
 
- export const validateInput = () => {
-    // Get the value of the input field with id="numb"
-    // let x = document.getElementById("numb").value;
-    
-    let x = (document.getElementById("rating") as HTMLInputElement).value;
+ export const validateInput = (e:any) => {
+    const id = e.target.id
+    // const value = e.target.value    
+    let x = (document.getElementById(id) as HTMLInputElement).value;
     let y = parseInt(x)
-    
-    // If x is Not a Number or less than one or greater than 10
     let text;
-    if (isNaN(y) || y < 0 || y > 5) {
-      text = "Input not valid";
-    } else {
-      text = "Input OK";
+
+    switch(id) {
+      case 'name':
+        if (x.length < 2){
+            text = "Product name must have atleast 2 characters"
+        }
+        else{
+            text= ""
+        }
+        (document.getElementById("errorName") as HTMLElement).innerText = text;
+            break
+            
+      case 'category':
+        if (x.length < 2){
+            text = "Product category must have atleast 2 characters"
+        }
+        else{
+            text= ""
+        }
+        (document.getElementById("errorCategory") as HTMLElement).innerText = text;
+            break
+      case 'price':
+        if (isNaN(y) || y <= 0 ) {
+            text = "Price can't be 0";
+          } else {
+            text = "";
+          }
+          (document.getElementById("errorPrice") as HTMLElement).innerText = text;
+            break
+      case 'rating':
+        if (isNaN(y) || y < 0 || y > 5) {
+            text = "Rating needs to be between 0-5";
+          } else {
+            text = "";
+          }
+          (document.getElementById("errorRating") as HTMLElement).innerText = text;
+            break
     }
-    (document.getElementById("demo") as HTMLElement).innerText = text;
   }
 
+
+  
   export const KeyUpValidate = (e:any) =>{
     const id = e.target.id
     const value = e.target.value
-    
+    const error = {}
+
+    const regName = value.length > 2
+
+    switch(id) {
+        case 'name':
+            if (value.match(regName)){
+                e.target.classList.remove("errorField")
+                // setFormErrors(error)
+            }else{
+
+            }
+            
+            break;
+        case 'category':
+            return validate_product(value)
+        case 'price':
+            return validate_product(value)
+        case 'rating':
+            return validate_rating(value)
+        
+    }
   }
+
+
+
+  // case 'name':
+        //     return validate_product(value)
+        // case 'category':
+        //     return validate_product(value)
+        // case 'price':
+        //     return validate_product(value)
+        // case 'rating':
+        //     return validate_rating(value)

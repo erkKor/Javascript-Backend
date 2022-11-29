@@ -1,6 +1,10 @@
 .create{
     margin: 0 auto;
     width: 500px;
+
+    .errorMessage{
+        color:red;
+    }
 }
 
 .manage-choices{
@@ -21,6 +25,8 @@
             background-color: $color-dark;
         }
     }
+
+    
 }
 
 

@@ -2320,6 +2320,9 @@ header a:active, header a:hover {
   margin: 0 auto;
   width: 500px;
 }
+.create .errorMessage {
+  color: red;
+}
 
 .manage-choices {
   display: flex;

@@ -45,7 +45,7 @@ const ContactForm = () => {
         setName('')
         setEmail('')
         setComments('')
-        // setErrors({
+        // setErrors({h
         //   name,
         //   email,
         //   comments
