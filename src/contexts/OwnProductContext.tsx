@@ -71,8 +71,8 @@ export const OwnProductProvider = ({children}: any) => {
         })
         if (result.status === 200)
             setProduct(await result.json())
-        
     }
+
     const remove = async (articleNumber:number) => {
         const result = await fetch(`${baseUrl}/${articleNumber}`, {
             method: 'delete',

@@ -80,6 +80,10 @@
             color:$color-dark;
             font-size: 26px;
             margin-right: 5rem;
+            transition: 0.3s ease-in-out;
+            &:hover{
+                color:$color-theme;
+            }
         }
     }
     label{
@@ -92,7 +96,12 @@
 }
 .update-info{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .info-text{
+        color: $color-theme;
+        font-size: 16px;
+    }
     ._card{
         width: 250px;
         ._card-menu{

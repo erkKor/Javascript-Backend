@@ -1,13 +1,20 @@
 import React from 'react'
+import { Product } from '../../models/ProductModel'
 import Card from '../items/Card'
 
-const BigSquareWCardsRight = ({id, offer, items}: any) => {
+interface BigSquareWCardsType{
+  id: string
+  offer: string
+  items: Product[]
+}
+
+const BigSquareWCards: React.FC<BigSquareWCardsType> = ({id, offer, items}) => {
   return (
     <section className="big-square-cards" id={id}>
         <div className="_container">
         <div className="card-grid">
                 {
-                  items.map((product:any)=> <Card key={product.articleNumber} product={product} />)
+                  items.map((product)=> <Card key={product.articleNumber} product={product} />)
                 }
             </div>
             <div className="big-square">
@@ -21,4 +28,4 @@ const BigSquareWCardsRight = ({id, offer, items}: any) => {
   )
 }
 
-export default BigSquareWCardsRight
+export default BigSquareWCards

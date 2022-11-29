@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import Breadcrumb from '../components/items/Breadcrumb'
+import Footer from '../components/Footer'
 import Card from '../components/items/Card'
 import Navbar from '../components/Navbar'
 import UpdateProducts from '../components/OWNPRODUCTS/UpdateProducts'
@@ -9,11 +9,11 @@ import { IProductContext, OwnProductContext } from '../contexts/OwnProductContex
 
 const UpdateProductsView = () => {
   const {id} = useParams()
-  const {setProduct, get, product} = React.useContext(OwnProductContext) as IProductContext;
+  const {get, product} = React.useContext(OwnProductContext) as IProductContext;
 
   useEffect(() => {
       get(Number(id))
-  }, [setProduct])
+  }, [])
   
   return (
     <>
@@ -29,8 +29,11 @@ const UpdateProductsView = () => {
     </section>
     <UpdateProducts />
     <div className="update-info">
+      <h3>Preview</h3>
+      <span className="info-text">ONLY UPDATES INFO ON SUBMIT</span>
       <Card product={product}/>
     </div>
+    <Footer />
     </>
   )
 }

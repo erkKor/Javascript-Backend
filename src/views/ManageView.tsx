@@ -22,9 +22,6 @@ const CreateProductView = () => {
     <Breadcrumb currentPage="Manage"/>
     <div className="_container manage-choices">
       <h3>Manage products</h3>
-      {/* <NavLink to="/Manage/Create" end className="manage-links">Add Product</NavLink> */}
-      {/* <NavLink to="/Manage/Update" end className="manage-links">Update Product</NavLink> */}
-      {/* <NavLink to="/Manage/Create" end className="manage-links">Remove Product</NavLink> */}
     </div>
     <AddProducts />
     <AddedProducts title="Added Products" items={products}/> 

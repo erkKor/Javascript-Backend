@@ -2387,6 +2387,10 @@ header a:active, header a:hover {
   color: #222529;
   font-size: 26px;
   margin-right: 5rem;
+  transition: 0.3s ease-in-out;
+}
+.update-products .top-bar .back-arrow:hover {
+  color: #FF7373;
 }
 .update-products label {
   font-weight: 500;
@@ -2397,7 +2401,12 @@ header a:active, header a:hover {
 
 .update-info {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.update-info .info-text {
+  color: #FF7373;
+  font-size: 16px;
 }
 .update-info ._card {
   width: 250px;

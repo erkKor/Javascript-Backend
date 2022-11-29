@@ -1,6 +1,7 @@
 import React from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import { Product } from '../models/ProductModel';
 import Card from './items/Card';
 
 const responsive = {
@@ -10,8 +11,11 @@ const responsive = {
   1024: { items: 4 },
 };
 
+interface CarouselTypes{
+  items: Product[]
+}
 
-const Carousel = ({items}: any) => {
+const Carousel: React.FC<CarouselTypes> = ({items}) => {
   return (
     <section className="carousel">
     <h3>Related Products</h3>

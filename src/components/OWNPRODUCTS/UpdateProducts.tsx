@@ -23,7 +23,6 @@ const UpdateProducts = () => {
         <label>Product Image</label>
         <input value={product.imageName} onChange={(e) => setProduct({...product, imageName: e.target.value})} type="text" className="form-control py-2 mb-2" placeholder="Url Link (optional)"/>
         <button type="submit" className="button-theme">Update Info</button>
-        
     </form>
 
     
