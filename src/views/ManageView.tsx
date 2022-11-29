@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import AddProducts from '../components/OWNPRODUCTS/AddProducts'
 import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'

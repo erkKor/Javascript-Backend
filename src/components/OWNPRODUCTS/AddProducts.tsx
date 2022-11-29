@@ -8,8 +8,8 @@ const AddProducts = () => {
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
-  const [price, setPrice] = useState(0)
-  const [rating, setRating] = useState(0)
+  const [price, setPrice] = useState('')
+  const [rating, setRating] = useState('')
   const [errors, setErrors] = useState({
     name,
     category,
@@ -45,8 +45,8 @@ const AddProducts = () => {
      if (errors.name === null && errors.category === null && errors.price === null && errors.rating === null) {
       setName('')
       setCategory('')
-      setPrice(0)
-      setRating(0)
+      setPrice('')
+      setRating('')
 
       create(e)
       }
@@ -65,7 +65,7 @@ const AddProducts = () => {
          <div className="errorMessage">{errors.category}</div>
         <input id="price" value={productRequest.price} onChange={(e) => {setProductRequest({...productRequest, price: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter price..."/>
          <div className="errorMessage">{errors.price}</div>
-        <input id="rating" value={productRequest.rating} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating..."/>
+        <input id="rating" value={productRequest.rating} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating (0-5)..."/>
           <div className="errorMessage">{errors.rating}</div>
         <input id="imageName" value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Image URL link (optional)"/>
          <div className="errorMessage"></div>

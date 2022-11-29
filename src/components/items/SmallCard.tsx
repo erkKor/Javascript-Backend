@@ -2,8 +2,13 @@ import React from 'react'
 import Button from './Button'
 import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
+import { Product } from '../../models/ProductModel'
 
-const SmallCard = ({product}: any) => {
+interface SmallCardType{
+    product: Product
+}
+
+const SmallCard: React.FC<SmallCardType> = ({product}) => {
   return (
     <div className="small-card">
         <div className="_card-background">

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import FeaturedProducts from '../components/sections/FeaturedProducts'
 import Breadcrumb from '../components/items/Breadcrumb'
-import { ProductContext, ProductContextType, useProductContext } from '../contexts/ProductContext'
+import { ProductContext, ProductContextType} from '../contexts/ProductContext'
 
 
 const ProductsView = () => {

@@ -1,3 +1,5 @@
+import React from "react"
+
 export const submitData = async (url:any, method:any, data:any, contentType =  'application/json') =>{
 
     const res = await fetch(url,{
@@ -98,7 +100,7 @@ const validate_rating = (value:number) => {
 }
 
 
-export const validateProducts = (e:any, form?:any) => {
+export const validateProducts = (e:React.ChangeEvent<HTMLInputElement>, form?:any) => {
     if (e.type === 'submit') {
      const errors:any = {}
      errors.name = validate_product(form.name)
@@ -115,9 +117,9 @@ export const validateProducts = (e:any, form?:any) => {
             case 'category':
                 return validate_product(value)
             case 'price':
-                return validate_price(value)
+                return validate_price(Number(value))
             case 'rating':
-                return validate_rating(value)
+                return validate_rating(Number(value))
         }
     }
  }
@@ -125,7 +127,7 @@ export const validateProducts = (e:any, form?:any) => {
 
 
 
- export const validateInput = (e:any) => {
+ export const validateInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.target.id
     // const value = e.target.value    
     let x = (document.getElementById(id) as HTMLInputElement).value;

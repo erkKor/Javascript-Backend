@@ -1,9 +1,13 @@
 import React, { useContext } from 'react'
 import { ShoppingCartContext, ShoppingCartContextType } from '../../contexts/ShoppingCartContext'
+import { CartItem } from '../../models/shoppingCartModel'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
 
+interface ShoppingCartItemType{
+  item: CartItem
+}
 
-const ShoppingCartItem = ({item}: any) => {
+const ShoppingCartItem: React.FC<ShoppingCartItemType> = ({item}) => {
   const {incrementQuantity, decrementQuantity, removeItem} = useContext(ShoppingCartContext) as ShoppingCartContextType
 
   return (

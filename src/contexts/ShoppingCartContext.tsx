@@ -5,11 +5,11 @@ import { CartItem } from "../models/shoppingCartModel";
 
 export interface ShoppingCartContextType{
     cartItems: CartItem[]
-    cartQuantity: any
-    getItemQuantity: (articleNumber: any) => any
-    incrementQuantity: (cartItem: any) => void
-    decrementQuantity: (cartItem: any) => void 
-    removeItem: (articleNumber: any) => void
+    cartQuantity: number
+    getItemQuantity: (articleNumber: number) => any
+    incrementQuantity: (cartItem: CartItem) => void
+    decrementQuantity: (cartItem: CartItem) => void 
+    removeItem: (articleNumber: number) => void
 }
 
 export const ShoppingCartContext = createContext<ShoppingCartContextType | null>(null)
@@ -19,17 +19,17 @@ export const useShoppingCart = () =>{
 }
 
 export const ShoppingCartProvider = ({children}: any) => {
-    const [cartItems, setCartItems] = useState<any[]>([])
+    const [cartItems, setCartItems] = useState<CartItem[]>([])
 
     const cartQuantity = cartItems.reduce(
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: any) =>{
+    const getItemQuantity = (articleNumber: number) =>{
         return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
     }
 
-    const incrementQuantity = (cartItem: any) => {
+    const incrementQuantity = (cartItem: CartItem) => {
         const {articleNumber, product} = cartItem
 
         setCartItems(items => {
@@ -50,11 +50,11 @@ export const ShoppingCartProvider = ({children}: any) => {
         })
     }
 
-    const decrementQuantity = (cartItem: any) => {
+    const decrementQuantity = (cartItem: CartItem) => {
         const {articleNumber} = cartItem
 
         setCartItems(items => {
-            if(items.find(item => item.articleNumber === articleNumber).quantity === 1) {
+            if(items.find(item => item.articleNumber === articleNumber)?.quantity === 1) {
                 return items.filter(item => item.articleNumber !== articleNumber)
             } else{
                 return items.map(item => {
@@ -68,14 +68,11 @@ export const ShoppingCartProvider = ({children}: any) => {
         })
     }
 
-    const removeItem = (articleNumber: any) =>{
+    const removeItem = (articleNumber: number) =>{
         setCartItems(items => {
             return items.filter(item => item.articleNumber !== articleNumber)
         })
     }
-
-
-
 
     return <ShoppingCartContext.Provider value={{cartItems, cartQuantity, getItemQuantity, incrementQuantity, decrementQuantity, removeItem}}>
         {children}

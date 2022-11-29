@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
@@ -7,8 +7,6 @@ import SaleText from '../components/items/SaleText'
 import Navbar from '../components/Navbar'
 import ProductDetails from '../components/ProductDetails'
 import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
-import { ProductContext, ProductContextType} from '../contexts/ProductContext'
-
 
 const ProductDetailsView = () => {
     // const {id} = useParams()

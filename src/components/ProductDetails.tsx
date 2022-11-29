@@ -6,8 +6,13 @@ import Tab from './items/Tab'
 import ExternalLinkIcon from './items/ExternalLinkIcon'
 import { ShoppingCartContext, ShoppingCartContextType} from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/CurrencyFormater'
+import { Product } from '../models/ProductModel'
 
-const ProductDetails = ({products} : any) => {
+interface ProductDetailsType{
+    products: Product
+}
+
+const ProductDetails: React.FC <ProductDetailsType> = ({products}) => {
     const {incrementQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
   return (
     <section className='product-details'>
@@ -64,7 +69,10 @@ const ProductDetails = ({products} : any) => {
                             <h3>Qty:</h3>
                             <QuantityButton />
                             <div className="break"></div>
-                            <button className="button-theme" type="submit" onClick={() => incrementQuantity({articleNumber: products.articleNumber, product: products})}>ADD TO CART</button>
+                            <button className="button-theme" type="submit" onClick={() => incrementQuantity({
+                                articleNumber: products.articleNumber, product: products,
+                                quantity: 0
+                            })}>ADD TO CART</button>
                         </div>
                         <div className="button-row" id="social-media">
                             <h3>Share:</h3>

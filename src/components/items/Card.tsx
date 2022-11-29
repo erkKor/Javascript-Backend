@@ -4,9 +4,13 @@ import Stars from './Stars'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContext, ShoppingCartContextType} from '../../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
+import { Product } from '../../models/ProductModel'
 
+interface CardType{
+    product: Product
+}
 
-const Card = ({product}:any) => {
+const Card: React.FC<CardType> = ({product}) => {
     const {incrementQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
     return (
@@ -14,7 +18,10 @@ const Card = ({product}:any) => {
         <ul className="_card-menu">
             <li><button><i className="fa-light fa-heart"></i></button></li>
             <li><button><i className="fa-light  fa-code-compare rotate-icon"></i></button></li>
-            <li><button onClick={() => incrementQuantity({articleNumber: product.articleNumber, product: product})}><i className="fa-light fa-bag-shopping"></i></button></li>
+            <li><button onClick={() => incrementQuantity({
+                articleNumber: product.articleNumber, product: product,
+                quantity: 0
+            })}><i className="fa-light fa-bag-shopping"></i></button></li>
         </ul>
         <div className="_card-background">
             <img src={product.imageName} alt={product.name}/>
