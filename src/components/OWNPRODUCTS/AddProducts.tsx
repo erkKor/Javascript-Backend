@@ -42,12 +42,25 @@ const AddProducts = () => {
   const handleSubmit = (e:any) => {
     e.preventDefault()
     setErrors(validateProducts(e, {name, category, price, rating}))
-    console.log(errors)
 
-    if (errors.name === null && errors.category === null && errors.price === null && errors.rating === null) {
+    if (productRequest.name.length >= 2 && productRequest.category.length >= 2 && productRequest.price >= 0 && productRequest.rating <= 5){ 
+     if (errors.name === null && errors.category === null && errors.price === null && errors.rating === null) {
+      setName('')
+      setCategory('')
+      setPrice(0)
+      setRating(0)
+
+      // setErrors({
+      //     name,
+      //     category,
+      //     price,
+      //     rating
+      //   })
+
       create(e)
     } else{
       console.log("didnt work")
+    }
     }
   }
  
@@ -64,7 +77,7 @@ const AddProducts = () => {
         <p id="error"></p>
         <input id="rating" value={productRequest.rating} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating..."/>
           <div className="errorMessage">{errors.rating}</div>
-        <input id="imageName" value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Url Link (optional)"/>
+        <input id="imageName" value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Image URL link (optional)"/>
          <div className="errorMessage"></div>
         <button type="submit" className="button-theme">Add Product</button>
     </form>

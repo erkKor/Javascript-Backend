@@ -79,7 +79,6 @@ const validate_product = (value:string) => {
         return 'Product must contain atleast 2 characters'
     else
         return null
-
 }
 const validate_price = (value:number) => {
     if (!value)
@@ -109,17 +108,17 @@ export const validateProducts = (e:any, form?:any) => {
      return errors
  
     } else {
-         const {id, value} = e.target
-         switch(id) {
-             case 'name':
-                 return validate_product(value)
-             case 'category':
-                 return validate_product(value)
-             case 'price':
-                 return validate_price(value)
-             case 'rating':
-                 return validate_rating(value)
-         }
+        const {id, value} = e.target
+        switch(id) {
+            case 'name':
+                return validate_product(value)
+            case 'category':
+                return validate_product(value)
+            case 'price':
+                return validate_price(value)
+            case 'rating':
+                return validate_rating(value)
+        }
     }
  }
 
