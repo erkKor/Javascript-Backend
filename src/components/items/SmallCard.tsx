@@ -3,6 +3,7 @@ import Button from './Button'
 import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
 import { Product } from '../../models/ProductModel'
+import Stars from './Stars'
 
 interface SmallCardType{
     product: Product
@@ -21,11 +22,7 @@ const SmallCard: React.FC<SmallCardType> = ({product}) => {
             <p>{product.category}</p>
             <h3>{product.name}</h3>
             <div className="stars">
-                <i className="fa-sharp fa-solid fa-star"></i>
-                <i className="fa-sharp fa-solid fa-star"></i>
-                <i className="fa-sharp fa-solid fa-star"></i>
-                <i className="fa-sharp fa-solid fa-star"></i>
-                <i className="fa-sharp fa-solid fa-star"></i>
+                <Stars ratingNumber={product.rating}/>
             </div>
             <div className="_card-prices"> 
                 <div className="original-price"></div>

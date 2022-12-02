@@ -63,9 +63,9 @@ const AddProducts: React.FC = () => {
          <div className="errorMessage">{errors.name}</div>
         <input id="category" value={productRequest.category} onChange={(e) => {setProductRequest({...productRequest, category: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter category..."/>
          <div className="errorMessage">{errors.category}</div>
-        <input id="price" value={productRequest.price} onChange={(e) => {setProductRequest({...productRequest, price: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter price..."/>
+        <input id="price" value={productRequest.price || ''} onChange={(e) => {setProductRequest({...productRequest, price: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter price..."/>
          <div className="errorMessage">{errors.price}</div>
-        <input id="rating" value={productRequest.rating} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating (0-5)..."/>
+        <input id="rating" value={productRequest.rating || ''} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating (1-5)..."/>
           <div className="errorMessage">{errors.rating}</div>
         <input id="imageName" value={productRequest.imageName} onChange={(e) => setProductRequest({...productRequest, imageName: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Image URL link (optional)"/>
          <div className="errorMessage"></div>

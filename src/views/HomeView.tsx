@@ -22,17 +22,29 @@ const HomeView = () => {
   // }, [])
 
 
-  const {products, getAll} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll, getTagFeatured, getTag} = React.useContext(OwnProductContext) as IProductContext
+  // const tag = "featured"
 
   useEffect(() => {
     getAll()
+    // // getTagFeatured()
+    // getTag("featured")
+    // getTag("")
+    
   }, [])
 
-  let featuredP = products.slice(0,8)
-  let squareP1 = products.slice(8,12)
-  let squareP2 = products.slice(12,16)
-  let trippleP1 = products.slice(16,19)
-  let trippleP2 = products.slice(19,22)
+  let featuredTag = products.filter(x => x.tag == "featured")
+  let square1Tag = products.filter(x => x.tag == "square1")
+  let square2Tag = products.filter(x => x.tag == "square2")
+  let latestTag = products.filter(x => x.tag == "latest")
+  let bestSellerTag = products.filter(x => x.tag == "bestSeller")
+  let reactedProductsTag = products.filter(x => x.tag == "candy")
+
+  // let featuredP = products.slice(0,8)
+  // let squareP1 = products.slice(8,12)
+  // let squareP2 = products.slice(12,16)
+  // let trippleP1 = products.slice(16,19)
+  // let trippleP2 = products.slice(19,22)
   
 
   return (
@@ -40,13 +52,13 @@ const HomeView = () => {
       <Navbar headerType="header-gray"/>
       <Showcase />
       <ShowcaseCardBigSmall />
-      <FeaturedProducts title="Featured Products" items={featuredP}/> 
+      <FeaturedProducts title="Featured Products" items={featuredTag}/> 
       <ShowcaseCardDouble />
       <OurSpeciality />
-      <BigSquareWCards items={squareP1} id="bigSquareLeft" offer="2 FOR USD $29"/> 
-      <BigSquareWCards items={squareP2} id="bigSquareRight" offer="2 FOR USD $49"/> 
+      <BigSquareWCards items={square1Tag} id="bigSquareLeft" offer="2 FOR USD $29"/> 
+      <BigSquareWCards items={square2Tag} id="bigSquareRight" offer="2 FOR USD $49"/> 
       <SaleBanner />
-      <TrippleColumnProducts items1={trippleP1} items2={trippleP2}/>
+      <TrippleColumnProducts items1={latestTag} items2={bestSellerTag} items3={reactedProductsTag}/>
       <InfoIcons />
       <Footer />
     </>

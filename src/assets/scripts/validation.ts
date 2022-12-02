@@ -93,7 +93,7 @@ const validate_price = (value:number) => {
 const validate_rating = (value:number) => {
     if (!value)
         return 'You must enter a rating'
-    else if (value > 5)
+    else if (value > 5 || value < 0)
         return 'Rating cannot be higher than 5'
     else
         return null

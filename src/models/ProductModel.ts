@@ -5,6 +5,7 @@ export interface Product{
     articleNumber: number,
     name: string,
     category: string,
+    tag: string,
     price: number,
     rating: number,
     imageName?: string
@@ -14,6 +15,7 @@ export interface Product{
 export interface ProductRequest{
     name: string,
     category: string,
+    tag: string,
     price: number,
     rating: number,
     imageName?: string

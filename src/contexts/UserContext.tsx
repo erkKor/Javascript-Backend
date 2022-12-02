@@ -1,10 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import { User, UserRequest } from '../models/UserModel'
 
-export interface IUserProviderProps{
-    children: any
-}
-
 export interface IUserContext{
     user: User
     setUser: React.Dispatch<React.SetStateAction<User>>
@@ -21,9 +17,9 @@ export interface IUserContext{
 export const UserContext = createContext<IUserContext | null>(null)
 export const useUserContext = () => { return useContext(UserContext)}
 
-export const UserProvider = ({children}: IUserProviderProps) => {
+export const UserProvider = ({children}: any) => {
     const baseUrl = 'http://localhost:5000/api/users'
-    const user_default: User = {id:0, firstName: '', lastName: '', email: ''}
+    const user_default: User = {userID:0, firstName: '', lastName: '', email: ''}
     const userRequest_default: UserRequest = {firstName: '', lastName: '', email: '', password: ''}
 
     const [user, setUser] = useState<User>(user_default)
@@ -48,8 +44,8 @@ export const UserProvider = ({children}: IUserProviderProps) => {
             
         
     }
-    const get = async (id: number) => {
-        const result = await fetch(`${baseUrl}/${id}`)
+    const get = async (userID: number) => {
+        const result = await fetch(`${baseUrl}/${userID}`)
         if (result.status === 200)
             setUser(await result.json()) 
     }
@@ -61,7 +57,7 @@ export const UserProvider = ({children}: IUserProviderProps) => {
     const update = async (e: React.FormEvent) => {
         e.preventDefault()
 
-        const result = await fetch(`${baseUrl}/${user.id}`, {
+        const result = await fetch(`${baseUrl}/${user.userID}`, {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,8 +68,8 @@ export const UserProvider = ({children}: IUserProviderProps) => {
             setUser(await result.json())
         
     }
-    const remove = async (id:number) => {
-        const result = await fetch(`${baseUrl}/${id}`, {
+    const remove = async (userID:number) => {
+        const result = await fetch(`${baseUrl}/${userID}`, {
             method: 'delete',
         })
 

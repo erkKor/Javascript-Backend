@@ -9,7 +9,7 @@ const UserList = () => {
     getAll()
     
     
-  }, [getAll])
+  }, [])
 
   // const removeUser = (id:number) => {
   //   remove(id)
@@ -20,7 +20,7 @@ const UserList = () => {
     <h3>List of Users</h3>
     {
       // users.map((user: User) => (<div onClick={() => remove(user.id)} key={user.id} className="mb-3">{user.firstName} {user.lastName}</div>))
-      users.map((user: User) => (<div key={user.id} className="mb-3">{user.firstName} {user.lastName}</div>))
+      users.map((user: User) => (<div key={user.userID} className="mb-3">{user.firstName} {user.lastName} </div>))
     }
     </>
   )

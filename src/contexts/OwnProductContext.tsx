@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from 'react'
-import { arrayBuffer } from 'stream/consumers'
 import { Product, ProductRequest } from '../models/ProductModel'
 
 export interface IProductContext{
@@ -10,6 +9,8 @@ export interface IProductContext{
     products: Product[]
     create: (e: React.FormEvent) => void
     get: (articleNumber: number) => void
+    getTag: (tag:string) => void
+    getTagFeatured: () => void
     getAll: () => void
     update: (e: React.FormEvent) => void
     remove: (articleNumber: number) => void
@@ -20,8 +21,8 @@ export const useProductContext = () => { return useContext(OwnProductContext)}
 
 export const OwnProductProvider = ({children}: any) => {
     const baseUrl = 'http://localhost:5000/api/products'
-    const product_default: Product = {articleNumber:0, name: '', category: '', price:0, rating:0, imageName: ''}
-    const productRequest_default: ProductRequest = {name: '', category: '', price:0, rating:0, imageName: ''}
+    const product_default: Product = { articleNumber:0, name: '', category: '', tag: '', price:0, rating:0, imageName: '' }
+    const productRequest_default: ProductRequest = { name: '', category: '', tag: '', price:0, rating:0, imageName: '' }
 
     const [product, setProduct] = useState<Product>(product_default)
     const [productRequest, setProductRequest] = useState<ProductRequest>(productRequest_default)
@@ -50,10 +51,24 @@ export const OwnProductProvider = ({children}: any) => {
     }
 
     const get = async (articleNumber: number) => {
-        const result = await fetch(`${baseUrl}/${articleNumber}`)
+        const result = await fetch(`${baseUrl}/details/${articleNumber}`)
         if (result.status === 200)
             setProduct(await result.json()) 
     }
+
+    const getTagFeatured = async () => {
+        const tagUrl = 'http://localhost:5000/api/products/featured'
+        const result = await fetch(`${tagUrl}`)
+        if (result.status === 200)
+            setProducts(await result.json()) 
+    }
+    const getTag = async (tag:string) => {
+        const result = await fetch(`${baseUrl}/${tag}`)
+        if (result.status === 200)
+            setProducts(await result.json()) 
+    }
+
+    
     const getAll = async () => {
         const result = await fetch(`${baseUrl}`)
         if (result.status === 200)
@@ -88,7 +103,7 @@ export const OwnProductProvider = ({children}: any) => {
 
     
   return (
-    <OwnProductContext.Provider value={{product, setProduct, productRequest, setProductRequest, products, create, get, getAll, update, remove}}>
+    <OwnProductContext.Provider value={{product, setProduct, productRequest, setProductRequest, products, create, get, getTag, getTagFeatured, getAll, update, remove}}>
         {children}
     </OwnProductContext.Provider>
   )

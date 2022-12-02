@@ -19,6 +19,7 @@ import ManageView from './views/ManageView';
 import AddProductView from './views/AddProductView';
 import UpdateProductsView from './views/UpdateProductView';
 import UserProvider from './contexts/UserContext';
+import UserView from './views/UserView';
 
 const App: React.FC = () => {
   return (
@@ -39,6 +40,7 @@ const App: React.FC = () => {
         <Route path="/Manage" element={<ManageView />}/>
           <Route path="/Manage/Create" element={<AddProductView />}/>
           <Route path="/Manage/:id" element={<UpdateProductsView />}/>
+        <Route path="/User" element={<UserView />}/>
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </OwnProductProvider>
