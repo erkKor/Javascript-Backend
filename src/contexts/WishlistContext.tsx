@@ -1,48 +1,56 @@
 import { createContext, useContext, useState } from "react";
-import ShoppingCart from "../components/ShoppingCart";
 import { CartItem } from "../models/shoppingCartModel";
 
 
-export interface ShoppingCartContextType{
-    cartItems: CartItem[]
-    cartQuantity: any
-    getItemQuantity: (articleNumber: any) => any
-    incrementQuantity: (cartItem: any) => void
-    decrementQuantity: (cartItem: any) => void 
-    removeItem: (articleNumber: any) => void
+export interface WishlistContextType{
+    wishlistItems: CartItem[]
+    wishlistQuantity: number
+    getItemQuantity: (articleNumber: number) => any
+    addOrRemoveWishlistItem: (cartItem: CartItem) => void
+    decrementQuantity: (cartItem: CartItem) => void 
+    removeItem: (articleNumber: number) => void
 }
 
-export const ShoppingCartContext = createContext<ShoppingCartContextType | null>(null)
+export const WishlistContext = createContext<WishlistContextType | null>(null)
 
-export const useShoppingCart = () =>{
-    return useContext(ShoppingCartContext)
+export const useWishlist = () =>{
+    return useContext(WishlistContext)
 }
 
-export const ShoppingCartProvider = ({children}: any) => {
-    const [cartItems, setCartItems] = useState<any[]>([])
+export const WishlistProvider = ({children}: any) => {
+    const [wishlistItems, setWishlistItems] = useState<CartItem[]>([])
 
-    const cartQuantity = cartItems.reduce(
+    const wishlistQuantity = wishlistItems.reduce(
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: any) =>{
-        return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
+    const getItemQuantity = (articleNumber: number) =>{
+        return wishlistItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
     }
 
-    const incrementQuantity = (cartItem: any) => {
+    const addOrRemoveWishlistItem = (cartItem: CartItem) => {
         const {articleNumber, product} = cartItem
 
-        setCartItems(items => {
-            if(items.find(item => item.articleNumber === articleNumber) == null) {
+        setWishlistItems(items => {
+            if( items.find(item => item.articleNumber === articleNumber) == null) {
+               
                 return [...items, { articleNumber, product, quantity: 1}]
+               
             } else{
-                return items.map(item => {
+                setWishlistItems(items => {
+            return items.filter(item => item.articleNumber !== articleNumber)
+            
+        })
+            return items.map(item => {
                     if (item.articleNumber === articleNumber) {
+                        // console.log(item)
+                        // console.log(items)
                         
-                        return {...item, quantity: item.quantity + 1}
+                        // return {...item}
+                        return {...item, quantity: item.quantity -1}
                         
                     } else{
-
+                        
                         return item
                     }
                 })
@@ -50,11 +58,11 @@ export const ShoppingCartProvider = ({children}: any) => {
         })
     }
 
-    const decrementQuantity = (cartItem: any) => {
+    const decrementQuantity = (cartItem: CartItem) => {
         const {articleNumber} = cartItem
 
-        setCartItems(items => {
-            if(items.find(item => item.articleNumber === articleNumber).quantity === 1) {
+        setWishlistItems(items => {
+            if(items.find(item => item.articleNumber === articleNumber)?.quantity === 1) {
                 return items.filter(item => item.articleNumber !== articleNumber)
             } else{
                 return items.map(item => {
@@ -68,17 +76,14 @@ export const ShoppingCartProvider = ({children}: any) => {
         })
     }
 
-    const removeItem = (articleNumber: any) =>{
-        setCartItems(items => {
+    const removeItem = (articleNumber: number) =>{
+        
+        setWishlistItems(items => {
             return items.filter(item => item.articleNumber !== articleNumber)
         })
     }
 
-
-
-
-    return <ShoppingCartContext.Provider value={{cartItems, cartQuantity, getItemQuantity, incrementQuantity, decrementQuantity, removeItem}}>
+    return <WishlistContext.Provider value={{wishlistItems, wishlistQuantity, getItemQuantity, addOrRemoveWishlistItem, decrementQuantity, removeItem}}>
         {children}
-        <ShoppingCart />
-    </ShoppingCartContext.Provider>
+    </WishlistContext.Provider>
 }

@@ -1603,6 +1603,69 @@ header a:active, header a:hover {
     width: 500px !important;
   }
 }
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.wishlist-item .stars {
+  color: #FF7373;
+}
+.wishlist-item .item-image img {
+  width: 100%;
+}
+.wishlist-item p {
+  margin: 0;
+}
+.wishlist-item .item-category {
+  font-size: 13px;
+  color: #616365;
+  font-size: 0.813rem;
+  font-weight: 500;
+}
+.wishlist-item .item-price {
+  font-size: 18px;
+  font-weight: 600;
+}
+.wishlist-item h3 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.wishlist-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 255px);
+  grid-template-rows: repeat(2, 325px);
+  gap: 1.5rem;
+}
+
+.edit-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.edit-buttons .edit-button {
+  border: none;
+  background-color: #E7E7E7;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+  width: 120px;
+  height: 30px;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  color: #222529;
+  text-align: center;
+}
+.edit-buttons .edit-button:hover {
+  background-color: #222529;
+  color: white;
+}
+.edit-buttons .edit-button:hover a {
+  color: white;
+}
+
 .big-square-cards {
   margin-top: 2rem;
 }

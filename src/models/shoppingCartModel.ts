@@ -5,5 +5,4 @@ export interface CartItem {
     articleNumber: number
     quantity: number
     product: Product
-    
 }

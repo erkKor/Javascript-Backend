@@ -3,15 +3,22 @@ import Navbar from '../components/Navbar'
 import Breadcrumb from '../components/items/Breadcrumb'
 import Footer from '../components/Footer'
 import Filler from '../components/Filler'
-import Wishlist from '../components/Wishlist'
+import WishlistMapper from '../components/WishlistMapper'
+import { WishlistContext, WishlistContextType } from '../contexts/WishlistContext'
 
-const WishlistView = () => {
+// import Wishlist from '../components/Wishlist'
+
+
+
+const WishlistView: React.FC = () => {
+  const {wishlistItems} = React.useContext(WishlistContext) as WishlistContextType
+
   return (
   <>
     <Navbar headerType="header-light"/>
     <Breadcrumb currentPage="Wishlist"/>
     {/* <Filler /> */}
-    <Wishlist />
+    <WishlistMapper />
     <Footer />
   </>
   )

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingCartContext, ShoppingCartContextType } from '../contexts/ShoppingCartContext'
+import { WishlistContext, WishlistContextType } from '../contexts/WishlistContext'
 import MenuIcon from './items/MenuIcon'
 
 interface Props{
@@ -10,14 +11,24 @@ interface Props{
 const Navbar: React.FC<Props> = ({headerType}) => {
     const [showMenu, setShowMenu] = useState(false)
     const {cartQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
+    const {wishlistQuantity} = React.useContext(WishlistContext) as WishlistContextType;
     const ref = useRef<HTMLSpanElement>(null!);
+    const wish = useRef<HTMLSpanElement>(null!);
 
     useEffect (() => {
-        if (cartQuantity === 0){
+        if (cartQuantity === 0 ){
             const hide = ref.current
             hide.className = "hidden-badge"
         } else if (cartQuantity !== 0){
             const hide = ref.current
+            hide.className = "badge"
+        }
+
+        if (wishlistQuantity === 0 ){
+            const hide = wish.current
+            hide.className = "hidden-badge"
+        } else if (wishlistQuantity !== 0){
+            const hide = wish.current
             hide.className = "badge"
         }
     })
@@ -44,12 +55,12 @@ const Navbar: React.FC<Props> = ({headerType}) => {
                 <MenuIcon link="/user" icon="fa-light fa-user"/>
                 <MenuIcon link="/search" icon="fa-light fa-magnifying-glass"/>
                 <MenuIcon hideOnMobile={true} link="/compare" icon="fa-light  fa-code-compare rotate-icon rotate-icon"/>
-                <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" />
+                {/* <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" /> */}
                 
-                {/* <button className="icon-link btn-icon-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#wishlist" aria-controls="wishlist">
-                    <i className="fa-light fa-heart"></i>
-                    <span ref={ref} className="badge">{cartQuantity}</span>
-                </button> */}
+                <button className="icon-link btn-icon-link" type="button">
+                    <NavLink to="/Wishlist" end><i className="fa-light fa-heart"></i></NavLink>
+                    <span ref={wish} className="badge">{wishlistQuantity}</span>
+                </button>
                 
                 <button className="icon-link btn-icon-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
                     <i className="fa-light fa-bag-shopping"></i>

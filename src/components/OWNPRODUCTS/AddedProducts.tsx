@@ -29,7 +29,7 @@ const AddedProducts: React.FC<AddedProductsTypes> = ({title,items}) => {
             </div>
             <div className="card-grid">
                 {
-                  items.map((product) => 
+                  items.map(product => 
                   <div key={product.articleNumber}>
                     <Card  product={product} />
                     <div className="edit-buttons">

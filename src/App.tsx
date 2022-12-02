@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
 // import { ProductProvider } from './contexts/ProductContext';
 import { ProductProvider } from './contexts/ProductContext';
+import { WishlistProvider } from './contexts/WishlistContext'
 // import UserProvider from './contexts/UserContext'
 
 import HomeView from "./views/HomeView";
@@ -20,6 +21,8 @@ import AddProductView from './views/AddProductView';
 import UpdateProductsView from './views/UpdateProductView';
 import UserProvider from './contexts/UserContext';
 import UserView from './views/UserView';
+import WishlistView from './views/WishlistView';
+
 
 const App: React.FC = () => {
   return (
@@ -27,6 +30,7 @@ const App: React.FC = () => {
       <TodoProvider>
       <UserProvider>
       <ShoppingCartProvider>
+      <WishlistProvider>
       <ProductProvider>
         <Routes>
         <Route path="/" element={<HomeView />}/>
@@ -36,6 +40,7 @@ const App: React.FC = () => {
         <Route path="/Contacts" element={<ContactView />}/>
         <Route path="/Search" element={<SearchView />}/>
         <Route path="/Compare" element={<CompareView />}/>
+        <Route path="/Wishlist" element={<WishlistView />}/>
         <Route path="/Manage" element={<ManageView />}/>
           <Route path="/Manage/Create" element={<AddProductView />}/>
           <Route path="/Manage/:id" element={<UpdateProductsView />}/>
@@ -43,6 +48,7 @@ const App: React.FC = () => {
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </ProductProvider>
+      </WishlistProvider>
       </ShoppingCartProvider>
       </UserProvider>
       </TodoProvider>
