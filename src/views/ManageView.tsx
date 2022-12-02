@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import AddProducts from '../components/OWNPRODUCTS/AddProducts'
 import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
-import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
+import { ProductContext, IProductContext } from '../contexts/ProductContext'
 import Breadcrumb from '../components/items/Breadcrumb'
 import Footer from '../components/Footer'
 
 const CreateProductView = () => {
-  const {products, getAll} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll} = React.useContext(ProductContext) as IProductContext
 
   useEffect(() => {
     getAll()

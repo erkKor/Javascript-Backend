@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import { IProductContext, OwnProductContext } from '../../contexts/OwnProductContext'
+import { IProductContext, ProductContext } from '../../contexts/ProductContext'
 import { Product } from '../../models/ProductModel'
 
 const ProductList = () => {
-  const {products, getAll, remove} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll, remove} = React.useContext(ProductContext) as IProductContext
   
   useEffect(() => {
     getAll()

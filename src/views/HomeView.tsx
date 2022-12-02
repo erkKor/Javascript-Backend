@@ -10,8 +10,7 @@ import SaleBanner from '../components/sections/SaleBanner'
 import TrippleColumnProducts from '../components/TrippleColumnProducts'
 import InfoIcons from '../components/InfoIcons'
 import Footer from '../components/Footer'
-import { ProductContext, ProductContextType} from '../contexts/ProductContext'
-import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
+import { ProductContext, IProductContext } from '../contexts/ProductContext'
 
 const HomeView = () => {
   // window.top.document.title = 'Fixxo.'
@@ -22,7 +21,7 @@ const HomeView = () => {
   // }, [])
 
 
-  const {products, getAll, getTagFeatured, getTag} = React.useContext(OwnProductContext) as IProductContext
+  const {products, getAll, getTagFeatured, getTag} = React.useContext(ProductContext) as IProductContext
   // const tag = "featured"
 
   useEffect(() => {

@@ -3,14 +3,14 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import FeaturedProducts from '../components/sections/FeaturedProducts'
 import Breadcrumb from '../components/items/Breadcrumb'
-import { ProductContext, ProductContextType} from '../contexts/ProductContext'
+import { ProductContext, IProductContext } from '../contexts/ProductContext'
 
 
 const ProductsView = () => {
-  const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
+   const {products, getAll} = React.useContext (ProductContext) as IProductContext
   
   useEffect(() => {
-    getProducts()
+    getAll()
   }, [])
 
   return (

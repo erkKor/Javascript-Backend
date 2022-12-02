@@ -6,7 +6,7 @@ import Breadcrumb from '../components/items/Breadcrumb'
 import SaleText from '../components/items/SaleText'
 import Navbar from '../components/Navbar'
 import ProductDetails from '../components/ProductDetails'
-import { OwnProductContext, IProductContext } from '../contexts/OwnProductContext'
+import { ProductContext, IProductContext } from '../contexts/ProductContext'
 
 const ProductDetailsView = () => {
     // const {id} = useParams()
@@ -24,13 +24,15 @@ const ProductDetailsView = () => {
 
 
     const {id} = useParams()
-    const {setProduct, get, product, products} = React.useContext(OwnProductContext) as IProductContext;
+    const {setProduct, get, getAll, product, products} = React.useContext(ProductContext) as IProductContext;
   
     useEffect(() => {
         get(Number(id))
+        getAll()
     }, [setProduct])
-    
-    let carousel = products.slice(4,12)
+
+    let carousel = products.filter (x => x.category == product.category)
+
   return (
     <>
       <Navbar headerType="header-light"/>

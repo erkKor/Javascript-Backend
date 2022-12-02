@@ -3,8 +3,8 @@ import './App.css';
 import TodoProvider  from './contexts/TodoContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ShoppingCartProvider } from './contexts/ShoppingCartContext';
+// import { ProductProvider } from './contexts/ProductContext';
 import { ProductProvider } from './contexts/ProductContext';
-import { OwnProductProvider } from './contexts/OwnProductContext';
 // import UserProvider from './contexts/UserContext'
 
 import HomeView from "./views/HomeView";
@@ -28,7 +28,6 @@ const App: React.FC = () => {
       <UserProvider>
       <ShoppingCartProvider>
       <ProductProvider>
-      <OwnProductProvider>
         <Routes>
         <Route path="/" element={<HomeView />}/>
         <Route path="/Products" element={<ProductsView/>}/>
@@ -43,7 +42,6 @@ const App: React.FC = () => {
         <Route path="/User" element={<UserView />}/>
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
-      </OwnProductProvider>
       </ProductProvider>
       </ShoppingCartProvider>
       </UserProvider>

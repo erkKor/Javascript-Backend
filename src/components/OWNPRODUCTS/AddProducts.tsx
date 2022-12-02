@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { validateProducts } from '../../assets/scripts/validation'
-import { IProductContext, OwnProductContext } from '../../contexts/OwnProductContext'
+import { IProductContext, ProductContext } from '../../contexts/ProductContext'
 
 
 const AddProducts: React.FC = () => {
-  const { productRequest, setProductRequest, create } = React.useContext(OwnProductContext) as IProductContext
+  const { productRequest, setProductRequest, create } = React.useContext(ProductContext) as IProductContext
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')

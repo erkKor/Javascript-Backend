@@ -1489,11 +1489,23 @@ header a:active, header a:hover {
   .carousel {
     width: 1110px;
   }
+  .carousel ._card {
+    width: 249px;
+  }
+  .carousel ._card img {
+    width: 100%;
+  }
+  .carousel ._card .button-theme {
+    left: 0;
+  }
   .carousel h3 {
     margin: 0.6rem 0;
   }
   .carousel .alice-carousel__stage {
     padding: 0 !important;
+  }
+  .carousel .alice-carousel__stage-item {
+    width: 25% !important;
   }
 }
 .sale-text {

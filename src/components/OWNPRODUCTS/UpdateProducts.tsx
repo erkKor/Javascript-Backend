@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { OwnProductContext, IProductContext } from '../../contexts/OwnProductContext'
+import { ProductContext, IProductContext } from '../../contexts/ProductContext'
 
 const UpdateProducts: React.FC = () => {
-  const {product, setProduct, update } = React.useContext(OwnProductContext) as IProductContext
+  const {product, setProduct, update } = React.useContext(ProductContext) as IProductContext
 
   return (
     <form onSubmit={update} className="d-grid mb-5 create update-products">

@@ -5,11 +5,11 @@ import Footer from '../components/Footer'
 import Card from '../components/items/Card'
 import Navbar from '../components/Navbar'
 import UpdateProducts from '../components/OWNPRODUCTS/UpdateProducts'
-import { IProductContext, OwnProductContext } from '../contexts/OwnProductContext'
+import { IProductContext, ProductContext } from '../contexts/ProductContext'
 
 const UpdateProductsView = () => {
   const {id} = useParams()
-  const {get, product} = React.useContext(OwnProductContext) as IProductContext;
+  const {get, product} = React.useContext(ProductContext) as IProductContext;
 
   useEffect(() => {
       get(Number(id))

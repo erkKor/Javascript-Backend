@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { OwnProductContext, IProductContext } from '../../contexts/OwnProductContext'
+import { ProductContext, IProductContext } from '../../contexts/ProductContext'
 import { Product } from '../../models/ProductModel'
 import Card from '../items/Card'
 
@@ -10,7 +10,7 @@ interface AddedProductsTypes{
 }
 
 const AddedProducts: React.FC<AddedProductsTypes> = ({title,items}) => {
-  const {getAll, remove} = React.useContext(OwnProductContext) as IProductContext
+  const {getAll, remove} = React.useContext(ProductContext) as IProductContext
 
   useEffect(() => {
     getAll()
