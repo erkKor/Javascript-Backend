@@ -1,13 +1,10 @@
 import React from 'react'
 import { WishlistContext, WishlistContextType } from '../contexts/WishlistContext'
-import { currencyFormatter } from '../utilities/CurrencyFormater'
 import WishlistItem from './items/WishlistItem'
-
-
 
 const Wishlist: React.FC = () => {
 
-  const {wishlistItems, removeItem} = React.useContext(WishlistContext) as WishlistContextType
+  const {wishlistItems} = React.useContext(WishlistContext) as WishlistContextType
   
 
   // let TotalPrice = 0
@@ -19,7 +16,6 @@ const Wishlist: React.FC = () => {
         {
           wishlistItems.map(item => (<WishlistItem key={item.articleNumber} item={item} />))
         }
-        
       </div>
     </div>
   )

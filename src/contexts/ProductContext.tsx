@@ -68,7 +68,6 @@ export const ProductProvider = ({children}: any) => {
         if (result.status === 200)
             setProducts(await result.json()) 
     }
-
     
     const getAll = async () => {
         const result = await fetch(`${baseUrl}`)
