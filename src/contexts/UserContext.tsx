@@ -18,7 +18,7 @@ export const UserContext = createContext<IUserContext | null>(null)
 export const useUserContext = () => { return useContext(UserContext)}
 
 export const UserProvider = ({children}: any) => {
-    const baseUrl = 'http://localhost:5000/api/users'
+    const baseUrl = 'http://localhost:5000/api/authentication'
     const user_default: User = {userID:0, firstName: '', lastName: '', email: ''}
     const userRequest_default: UserRequest = {firstName: '', lastName: '', email: '', password: ''}
 

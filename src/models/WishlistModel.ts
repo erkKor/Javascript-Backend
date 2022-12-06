@@ -1,7 +1,7 @@
 import { Product } from "./ProductModel"
 
 export interface WishlistItem {
-    articleNumber: number
+    articleNumber: string
     quantity: number
     product: Product
 }

@@ -8,6 +8,7 @@ const AddProducts: React.FC = () => {
 
   const [name, setName] = useState('')
   const [category, setCategory] = useState('')
+  const [tag, setTag] = useState('')
   const [price, setPrice] = useState('')
   const [rating, setRating] = useState('')
   const [errors, setErrors] = useState({
@@ -25,6 +26,9 @@ const AddProducts: React.FC = () => {
         break
       case 'category':
         setCategory(value)
+        break
+      case 'tag':
+        setTag(value)
         break
       case 'price':
         setPrice(value)
@@ -62,6 +66,8 @@ const AddProducts: React.FC = () => {
         <input id="name" value={productRequest.name} onChange={(e) => {setProductRequest({...productRequest, name: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter name..."/>
          <div className="errorMessage">{errors.name}</div>
         <input id="category" value={productRequest.category} onChange={(e) => {setProductRequest({...productRequest, category: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter category..."/>
+         <div className="errorMessage">{errors.category}</div>
+        <input id="tag" value={productRequest.tag} onChange={(e) => {setProductRequest({...productRequest, tag: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter tag..."/>
          <div className="errorMessage">{errors.category}</div>
         <input id="price" value={productRequest.price || ''} onChange={(e) => {setProductRequest({...productRequest, price: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter price..."/>
          <div className="errorMessage">{errors.price}</div>

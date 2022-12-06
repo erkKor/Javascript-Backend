@@ -16,6 +16,7 @@ const FeaturedProducts: React.FC<FeaturedProductsType> = ({title,items}) => {
             </div>
             <div className="card-grid">
                 {
+                  // Funkar det att sätta + 1 ?
                   items.map((product) => <Card key={product.articleNumber} product={product} />)
                 }
             </div>

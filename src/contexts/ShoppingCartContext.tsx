@@ -6,10 +6,10 @@ import { CartItem } from "../models/shoppingCartModel";
 export interface ShoppingCartContextType{
     cartItems: CartItem[]
     cartQuantity: number
-    getItemQuantity: (articleNumber: number) => any
+    getItemQuantity: (articleNumber: string) => any
     incrementQuantity: (cartItem: CartItem) => void
     decrementQuantity: (cartItem: CartItem) => void 
-    removeItem: (articleNumber: number) => void
+    removeItem: (articleNumber: string) => void
 }
 
 export const ShoppingCartContext = createContext<ShoppingCartContextType | null>(null)
@@ -25,7 +25,7 @@ export const ShoppingCartProvider = ({children}: any) => {
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: number) =>{
+    const getItemQuantity = (articleNumber: string) =>{
         return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
     }
 
@@ -68,7 +68,7 @@ export const ShoppingCartProvider = ({children}: any) => {
         })
     }
 
-    const removeItem = (articleNumber: number) =>{
+    const removeItem = (articleNumber: string) =>{
         setCartItems(items => {
             return items.filter(item => item.articleNumber !== articleNumber)
         })

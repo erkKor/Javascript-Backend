@@ -8,12 +8,12 @@ export interface IProductContext{
     setProductRequest: React.Dispatch<React.SetStateAction<ProductRequest>>
     products: Product[]
     create: (e: React.FormEvent) => void
-    get: (articleNumber: number) => void
+    get: (articleNumber: string) => void
     getTag: (tag:string) => void
     getTagFeatured: () => void
     getAll: () => void
     update: (e: React.FormEvent) => void
-    remove: (articleNumber: number) => void
+    remove: (articleNumber: string) => void
 }
 
 export const ProductContext = createContext<IProductContext | null>(null)
@@ -21,7 +21,7 @@ export const useProductContext = () => { return useContext(ProductContext)}
 
 export const ProductProvider = ({children}: any) => {
     const baseUrl = 'http://localhost:5000/api/products'
-    const product_default: Product = { articleNumber:0, name: '', category: '', tag: '', price:0, rating:0, imageName: '' }
+    const product_default: Product = { articleNumber:'', name: '', category: '', tag: '', price:0, rating:0, imageName: '' }
     const productRequest_default: ProductRequest = { name: '', category: '', tag: '', price:0, rating:0, imageName: '' }
 
     const [product, setProduct] = useState<Product>(product_default)
@@ -41,8 +41,9 @@ export const ProductProvider = ({children}: any) => {
         if (result.status === 201){
             setProductRequest(productRequest_default)
             const _product = await result.json()
+            console.log(_product)
 
-            setProducts(prevProducts => {
+            await setProducts(prevProducts => {
                 return [...prevProducts, _product]
             })
         }else{
@@ -50,7 +51,7 @@ export const ProductProvider = ({children}: any) => {
         }
     }
 
-    const get = async (articleNumber: number) => {
+    const get = async (articleNumber: string) => {
         const result = await fetch(`${baseUrl}/details/${articleNumber}`)
         if (result.status === 200)
             setProduct(await result.json()) 
@@ -88,15 +89,15 @@ export const ProductProvider = ({children}: any) => {
             setProduct(await result.json())
     }
 
-    const remove = async (articleNumber:number) => {
+    const remove = async (articleNumber:string) => {
         const result = await fetch(`${baseUrl}/details/${articleNumber}`, {
             method: 'delete',
         })
 
-        if (result.status === 204){
-            setProduct(product_default)  
+        if (result.status === 200){
             setProducts(productsVADSOM => {
                 return productsVADSOM.filter(productHEHE => productHEHE.articleNumber !== articleNumber)
+                
             })
         }
     }

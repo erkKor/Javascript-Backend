@@ -1,8 +1,7 @@
-import { Url } from "url"
 import { Product } from "./ProductModel"
 
 export interface CartItem {
-    articleNumber: number
+    articleNumber: string
     quantity: number
     product: Product
 }

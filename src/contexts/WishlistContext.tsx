@@ -4,9 +4,9 @@ import { WishlistItem } from "../models/WishlistModel";
 export interface WishlistContextType{
     wishlistItems: WishlistItem[]
     wishlistQuantity: number
-    getItemQuantity: (articleNumber: number) => any
+    getItemQuantity: (articleNumber: string) => any
     addOrRemoveWishlistItem: (wishlistItem: WishlistItem) => void
-    removeItem: (articleNumber: number) => void
+    removeItem: (articleNumber: string) => void
 }
 
 export const WishlistContext = createContext<WishlistContextType | null>(null)
@@ -22,7 +22,7 @@ export const WishlistProvider = ({children}: any) => {
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber: number) =>{
+    const getItemQuantity = (articleNumber: string) =>{
         return wishlistItems.find(item => item.articleNumber === articleNumber)?.quantity || 0
     }
 
@@ -82,7 +82,7 @@ export const WishlistProvider = ({children}: any) => {
     
 
 
-    const removeItem = (articleNumber: number) =>{
+    const removeItem = (articleNumber: string) =>{
         setWishlistItems(items => {
             return items.filter(item => item.articleNumber !== articleNumber)
         })

@@ -31,7 +31,7 @@ const HomeView = () => {
     // getTag("")
     
   }, [])
-
+  
   let featuredTag = products.filter(x => x.tag == "featured")
   let square1Tag = products.filter(x => x.tag == "square1")
   let square2Tag = products.filter(x => x.tag == "square2")

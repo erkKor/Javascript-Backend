@@ -22,12 +22,11 @@ const ProductDetailsView = () => {
     //     getProducts()
     // },[])
 
-
     const {id} = useParams()
     const {setProduct, get, getAll, product, products} = React.useContext(ProductContext) as IProductContext;
-  
+
     useEffect(() => {
-        get(Number(id))
+        get(String(id))
         getAll()
     }, [setProduct])
 

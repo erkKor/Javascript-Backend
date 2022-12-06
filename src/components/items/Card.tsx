@@ -14,7 +14,7 @@ interface CardType{
 const Card: React.FC<CardType> = ({product}) => {
     const {incrementQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
     const {addOrRemoveWishlistItem} = React.useContext(WishlistContext) as WishlistContextType;
-
+    
     return (
     <div className="_card">
         <ul className="_card-menu">

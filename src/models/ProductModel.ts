@@ -1,8 +1,7 @@
-import { Url } from "url"
 
 // Hämta användare
 export interface Product{
-    articleNumber: number,
+    articleNumber: string,
     name: string,
     category: string,
     tag: string,

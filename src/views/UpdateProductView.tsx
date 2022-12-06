@@ -12,7 +12,7 @@ const UpdateProductsView = () => {
   const {get, product} = React.useContext(ProductContext) as IProductContext;
 
   useEffect(() => {
-      get(Number(id))
+      get(String(id))
   }, [])
   
   return (

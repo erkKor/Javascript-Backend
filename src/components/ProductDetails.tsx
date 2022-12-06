@@ -7,6 +7,7 @@ import ExternalLinkIcon from './items/ExternalLinkIcon'
 import { ShoppingCartContext, ShoppingCartContextType} from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/CurrencyFormater'
 import { Product } from '../models/ProductModel'
+import Stars from './items/Stars'
 
 interface ProductDetailsType{
     products: Product
@@ -39,11 +40,7 @@ const ProductDetails: React.FC <ProductDetailsType> = ({products}) => {
                         <p>BRAND: The Northland</p>
                     </div>
                     <div className="stars">
-                        <i className="fa-sharp fa-solid fa-star"></i>
-                        <i className="fa-sharp fa-solid fa-star"></i>
-                        <i className="fa-sharp fa-solid fa-star"></i>
-                        <i className="fa-sharp fa-solid fa-star"></i>
-                        <i className="fa-sharp fa-solid fa-star"></i>
+                        <Stars ratingNumber={products.rating}/>
                     </div>
                     <div className="product-prices"> 
                         <div className="original-price"></div>
