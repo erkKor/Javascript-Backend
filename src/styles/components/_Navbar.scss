@@ -55,6 +55,16 @@ header{
             justify-content: flex-end;
             align-items: center;
         
+        .user-icon{
+            display: flex;
+            align-items: center;
+            h4{
+                color: $color-theme;
+                font-size: 18px;
+                margin-right: 1rem;
+                margin-top: 5px;
+            }
+        }
             .icon-link{
                 position: relative;
                 display: flex;

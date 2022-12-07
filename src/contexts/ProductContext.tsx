@@ -13,7 +13,7 @@ export interface IProductContext{
     getTagFeatured: () => void
     getAll: () => void
     update: (e: React.FormEvent) => void
-    remove: (articleNumber: string) => void
+    removeItem: (articleNumber: string) => void
 }
 
 export const ProductContext = createContext<IProductContext | null>(null)
@@ -34,7 +34,8 @@ export const ProductProvider = ({children}: any) => {
         const result = await fetch(`${baseUrl}`, {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accesToken')}`
             },
             body: JSON.stringify(productRequest)
         })
@@ -42,12 +43,14 @@ export const ProductProvider = ({children}: any) => {
             setProductRequest(productRequest_default)
             const _product = await result.json()
             console.log(_product)
+            
 
-            await setProducts(prevProducts => {
+            setProducts(prevProducts => {
                 return [...prevProducts, _product]
             })
         }else{
             console.log('error')
+            console.log(localStorage)
         }
     }
 
@@ -81,7 +84,8 @@ export const ProductProvider = ({children}: any) => {
         const result = await fetch(`${baseUrl}/details/${product.articleNumber}`, {
             method: 'put',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accesToken')}`
             },
             body: JSON.stringify(product)
         })
@@ -89,9 +93,12 @@ export const ProductProvider = ({children}: any) => {
             setProduct(await result.json())
     }
 
-    const remove = async (articleNumber:string) => {
+    const removeItem = async (articleNumber:string) => {
         const result = await fetch(`${baseUrl}/details/${articleNumber}`, {
             method: 'delete',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accesToken')}`
+            },
         })
 
         if (result.status === 200){
@@ -104,7 +111,7 @@ export const ProductProvider = ({children}: any) => {
 
     
   return (
-    <ProductContext.Provider value={{product, setProduct, productRequest, setProductRequest, products, create, get, getTag, getTagFeatured, getAll, update, remove}}>
+    <ProductContext.Provider value={{product, setProduct, productRequest, setProductRequest, products, create, get, getTag, getTagFeatured, getAll, update, removeItem}}>
         {children}
     </ProductContext.Provider>
   )

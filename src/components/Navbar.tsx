@@ -31,11 +31,13 @@ const Navbar: React.FC<Props> = ({headerType}) => {
             const hide = wish.current
             hide.className = "badge"
         }
+        
     })
 
     const toggleMenu = () =>{
         setShowMenu(!showMenu)
     }
+    const userName = localStorage.getItem('name')
     
 
   return (
@@ -52,7 +54,10 @@ const Navbar: React.FC<Props> = ({headerType}) => {
                 <NavLink to="/Manage" end>Manage</NavLink>
             </div>
             <div className="icon-links">
-                <MenuIcon link="/user" icon="fa-light fa-user"/>
+                <div className="user-icon">
+                    <h4>{userName}</h4>
+                    <MenuIcon link="/user" icon="fa-light fa-user"/>
+                </div>
                 <MenuIcon link="/search" icon="fa-light fa-magnifying-glass"/>
                 <MenuIcon hideOnMobile={true} link="/compare" icon="fa-light  fa-code-compare rotate-icon rotate-icon"/>
                 {/* <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" /> */}

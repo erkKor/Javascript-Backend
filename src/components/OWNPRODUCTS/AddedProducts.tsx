@@ -10,7 +10,7 @@ interface AddedProductsTypes{
 }
 
 const AddedProducts: React.FC<AddedProductsTypes> = ({title,items}) => {
-  const {getAll, remove} = React.useContext(ProductContext) as IProductContext
+  const {getAll, removeItem} = React.useContext(ProductContext) as IProductContext
 
   useEffect(() => {
     getAll()
@@ -33,7 +33,7 @@ const AddedProducts: React.FC<AddedProductsTypes> = ({title,items}) => {
                   <div key={product.articleNumber}>
                     <Card  product={product} />
                     <div className="edit-buttons">
-                      <button className="edit-button" onClick={() => remove(product.articleNumber)}><i className="fa-light fa-trash"></i></button>
+                      <button className="edit-button" onClick={() => removeItem(product.articleNumber)}><i className="fa-light fa-trash"></i></button>
                       <NavLink to={`/Manage/${product.articleNumber}`} end className="edit-button"><i className="fa-light fa-gear"></i></NavLink>
                     </div>
                 </div>)

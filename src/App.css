@@ -435,6 +435,16 @@ header ._container .icon-links {
   justify-content: flex-end;
   align-items: center;
 }
+header ._container .icon-links .user-icon {
+  display: flex;
+  align-items: center;
+}
+header ._container .icon-links .user-icon h4 {
+  color: #FF7373;
+  font-size: 18px;
+  margin-right: 1rem;
+  margin-top: 5px;
+}
 header ._container .icon-links .icon-link {
   position: relative;
   display: flex;

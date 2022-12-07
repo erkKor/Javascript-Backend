@@ -6,12 +6,9 @@ export interface IUserContext{
     setUser: React.Dispatch<React.SetStateAction<User>>
     userRequest: UserRequest
     setUserRequest: React.Dispatch<React.SetStateAction<UserRequest>>
-    users: User[]
+    // users: User[]
     create: (e: React.FormEvent) => void
-    get: (id: number) => void
-    getAll: () => void
-    update: (e: React.FormEvent) => void
-    remove: (id:number) => void
+    signIn: (e: React.FormEvent) => void
 }
 
 export const UserContext = createContext<IUserContext | null>(null)
@@ -24,15 +21,17 @@ export const UserProvider = ({children}: any) => {
 
     const [user, setUser] = useState<User>(user_default)
     const [userRequest, setUserRequest] = useState<UserRequest>(userRequest_default)
-    const [users, setUsers] = useState<User[]>([])
+    // const [users, setUsers] = useState<User[]>([])
 
     const create = async (e: React.FormEvent) => {
         e.preventDefault()
+        const url = 'http://localhost:5000/api/authentication/signup'
 
-        const result = await fetch(`${baseUrl}`, {
+        const result = await fetch(`${url}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
+
             },
             body: JSON.stringify(userRequest)
         })
@@ -41,45 +40,35 @@ export const UserProvider = ({children}: any) => {
         }else{
             console.log('error')
         }
-            
-        
     }
-    const get = async (userID: number) => {
-        const result = await fetch(`${baseUrl}/${userID}`)
-        if (result.status === 200)
-            setUser(await result.json()) 
-    }
-    const getAll = async () => {
-        const result = await fetch(`${baseUrl}`)
-        if (result.status === 200)
-            setUsers(await result.json()) 
-    }
-    const update = async (e: React.FormEvent) => {
-        e.preventDefault()
 
-        const result = await fetch(`${baseUrl}/${user.userID}`, {
-            method: 'put',
+    const signIn = async (e: React.FormEvent) => {
+        e.preventDefault()
+        const url = 'http://localhost:5000/api/authentication/signin'
+
+        const result = await fetch(`${url}`, {
+            method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(userRequest)
         })
-        if (result.status === 200)
-            setUser(await result.json())
-        
+        if (result.status === 200){
+            const data = await result.json()
+            console.log(data)
+            setUserRequest(userRequest_default)
+            localStorage.setItem('accesToken', data.accesToken)
+            localStorage.setItem('name', data.name)
+            console.log()
+        }else{
+            console.log('error')
+        }
     }
-    const remove = async (userID:number) => {
-        const result = await fetch(`${baseUrl}/${userID}`, {
-            method: 'delete',
-        })
-
-        if (result.status === 204)
-            setUser(user_default)
-    }
+   
 
     
   return (
-    <UserContext.Provider value={{user, setUser, userRequest, setUserRequest, users, create, get, getAll, update, remove}}>
+    <UserContext.Provider value={{user, setUser, userRequest, setUserRequest, create, signIn}}>
         {children}
     </UserContext.Provider>
   )
