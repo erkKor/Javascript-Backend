@@ -42,9 +42,7 @@ export const ProductProvider = ({children}: any) => {
         if (result.status === 201){
             setProductRequest(productRequest_default)
             const _product = await result.json()
-            console.log(_product)
             
-
             setProducts(prevProducts => {
                 return [...prevProducts, _product]
             })

@@ -14,6 +14,7 @@ const AddProducts: React.FC = () => {
   const [errors, setErrors] = useState({
     name,
     category,
+    tag,
     price,
     rating
   })
@@ -43,12 +44,13 @@ const AddProducts: React.FC = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    setErrors(validateProducts(e, {name, category, price, rating}))
+    setErrors(validateProducts(e, {name, category, tag, price, rating}))
 
     if (productRequest.name.length >= 2 && productRequest.category.length >= 2 && productRequest.price >= 0 && productRequest.rating <= 5){ 
      if (errors.name === null && errors.category === null && errors.price === null && errors.rating === null) {
       setName('')
       setCategory('')
+      setTag('')
       setPrice('')
       setRating('')
 
@@ -68,7 +70,7 @@ const AddProducts: React.FC = () => {
         <input id="category" value={productRequest.category} onChange={(e) => {setProductRequest({...productRequest, category: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter category..."/>
          <div className="errorMessage">{errors.category}</div>
         <input id="tag" value={productRequest.tag} onChange={(e) => {setProductRequest({...productRequest, tag: e.target.value}); handleChange(e)}} type="text" className="form-control py-2 mb-3" placeholder="Enter tag..."/>
-         <div className="errorMessage">{errors.category}</div>
+         <div className="errorMessage">{errors.tag}</div>
         <input id="price" value={productRequest.price || ''} onChange={(e) => {setProductRequest({...productRequest, price: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter price..."/>
          <div className="errorMessage">{errors.price}</div>
         <input id="rating" value={productRequest.rating || ''} onChange={(e) => {setProductRequest({...productRequest, rating: Number(e.target.value)}); handleChange(e)}} type="number" className="form-control py-2 mb-3" placeholder="Enter rating (1-5)..."/>

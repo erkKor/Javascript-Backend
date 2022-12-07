@@ -105,6 +105,7 @@ export const validateProducts = (e:React.ChangeEvent<HTMLInputElement>, form?:an
      const errors:any = {}
      errors.name = validate_product(form.name)
      errors.category = validate_product(form.category)
+     errors.tag = validate_product(form.tag)
      errors.price = validate_price(form.price)
      errors.rating = validate_rating(form.rating)
      return errors
@@ -115,6 +116,8 @@ export const validateProducts = (e:React.ChangeEvent<HTMLInputElement>, form?:an
             case 'name':
                 return validate_product(value)
             case 'category':
+                return validate_product(value)
+            case 'tag':
                 return validate_product(value)
             case 'price':
                 return validate_price(Number(value))

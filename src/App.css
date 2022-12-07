@@ -2483,6 +2483,10 @@ header a:active, header a:hover {
 .update-products .button-theme {
   width: 100%;
 }
+.update-products .errorMessage {
+  font-size: 20px;
+  color: red;
+}
 
 .update-info {
   display: flex;

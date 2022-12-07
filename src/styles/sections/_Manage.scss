@@ -93,7 +93,12 @@
     .button-theme{
         width: 100%;
     }
+    .errorMessage{
+        font-size: 20px;
+        color:red;
+    }
 }
+
 .update-info{
     display: flex;
     align-items: center;
