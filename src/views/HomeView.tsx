@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../components/Navbar'
 import Showcase from '../components/sections/Showcase'
 import ShowcaseCardBigSmall from '../components/sections/ShowcaseCardBigSmall'
@@ -14,21 +14,10 @@ import { ProductContext, IProductContext } from '../contexts/ProductContext'
 
 const HomeView = () => {
   // window.top.document.title = 'Fixxo.'
-  // const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
-
-  // useEffect(() => {
-  //   getProducts()
-  // }, [])
-
-
   const {products, getAll, getTagFeatured, getTag} = React.useContext(ProductContext) as IProductContext
-  // const tag = "featured"
 
   useEffect(() => {
     getAll()
-    // // getTagFeatured()
-    // getTag("featured")
-    // getTag("")
     
   }, [])
   
@@ -38,13 +27,18 @@ const HomeView = () => {
   let latestTag = products.filter(x => x.tag == "latest")
   let bestSellerTag = products.filter(x => x.tag == "bestSeller")
   let reactedProductsTag = products.filter(x => x.tag == "candy")
-
-  // let featuredP = products.slice(0,8)
-  // let squareP1 = products.slice(8,12)
-  // let squareP2 = products.slice(12,16)
-  // let trippleP1 = products.slice(16,19)
-  // let trippleP2 = products.slice(19,22)
   
+  // console.log(localStorage.getItem('name'))
+
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  if(localStorage.getItem('name')){
+    if (loggedIn == false){
+      setLoggedIn(true)
+      console.log(loggedIn)
+    }
+
+  }
 
   return (
     <>
