@@ -1,16 +1,8 @@
 import React from 'react'
-import { Product } from '../../models/ProductModel'
 import Card from '../items/Card'
 import CardTEST from '../items/CardTEST'
 
-// interface FeaturedProductsType{
-//   title: string
-//   items: Product[]
-// }
-
 const FeaturedProducts = ({title,items}) => {
-
-  console.log(items.products)
   return (
     <section className="featured-products">
         <div className="_container">

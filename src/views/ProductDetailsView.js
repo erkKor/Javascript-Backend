@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
@@ -24,37 +24,31 @@ const GET_PRODUCT_QUERY = gql`
     }
   }
   `
-
-
+const AllProducts_Query = gql`{products { _id, name, category, tag, price, rating, vendor {name}}}`
+  
 const ProductDetailsView = () => {
-    // const {id} = useParams()
-    // const [product, setProducts] = useState({})
-    // const {products, getProducts} = React.useContext(ProductContext) as ProductContextType;
-
-    // useEffect(() => {
-    //     const fetchData = async () =>{
-    //       const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
-    //       setProducts(await result.json())
-    //     }
-    //     fetchData()
-    //     getProducts()
-    // },[])
 
     const {id} = useParams()
-    // const {setProduct, get, getAll, product, products} = React.useContext(ProductContext) as IProductContext;
+    const {setProduct, get, getAll, product, products} = useContext(ProductContext) 
     const {loading, error, data} = useQuery(GET_PRODUCT_QUERY, {
       variables: {id:id}
     })
+
+    const {loading: allLoading, error: allError, data: allData} = useQuery(AllProducts_Query)
+
     if (loading) return <option disabled>Laddar...</option>
     if (error) return <option disabled>Error fel</option>
-    console.log(data.product)
+    if (allLoading) return <option disabled>Laddar...</option>
+    if (allError) return <option disabled>Error fel</option>
 
     // useEffect(() => {
-    //     get(String(id))
     //     getAll()
     // }, [setProduct])
 
-    // let carousel = products.filter (x => x.category == product.category)
+    console.log(allData)
+
+    let carousel = allData.products.filter (x => x.category == data.product.category)
+    console.log(carousel)
 
   return (
     <>
@@ -62,7 +56,7 @@ const ProductDetailsView = () => {
       <SaleText />
       <Breadcrumb currentPage="Products"/>
       <ProductDetails products={data.product}/>
-      {/* <Carousel items={carousel}/> */}
+      <Carousel items={carousel}/>
       <Footer />
     </>
   )
