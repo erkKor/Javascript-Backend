@@ -5,6 +5,7 @@ import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
 import { ProductContext, IProductContext } from '../contexts/ProductContext'
 import Breadcrumb from '../components/items/Breadcrumb'
 import Footer from '../components/Footer'
+import AddProductsNEW from '../components/OWNPRODUCTS/AddProductsNEW'
 
 const CreateProductView = () => {
   const {products, getAll} = React.useContext(ProductContext) as IProductContext
@@ -22,7 +23,8 @@ const CreateProductView = () => {
     <div className="_container manage-choices">
       <h3>Manage products</h3>
     </div>
-    <AddProducts />
+    {/* <AddProducts /> */}
+    <AddProductsNEW />
     <AddedProducts title="Added Products" items={products}/> 
     <Footer />
     </>

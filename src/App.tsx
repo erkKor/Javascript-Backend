@@ -22,7 +22,8 @@ import UpdateProductsView from './views/UpdateProductView';
 import UserProvider from './contexts/UserContext';
 import UserView from './views/UserView';
 import WishlistView from './views/WishlistView';
-
+import ProductViewNew from './views/ProductViewNew';
+import VendorView from './views/VendorView';
 
 const App: React.FC = () => {
   return (
@@ -45,6 +46,8 @@ const App: React.FC = () => {
           <Route path="/Manage/Create" element={<AddProductView />}/>
           <Route path="/Manage/:id" element={<UpdateProductsView />}/>
         <Route path="/User" element={<UserView />}/>
+        <Route path="/productsNew" element={<ProductViewNew />}/>
+        <Route path="/vendors" element={<VendorView />}/>
         <Route path="*" element={<NotFoundView />}/>
         </Routes>
       </ProductProvider>

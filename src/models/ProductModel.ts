@@ -10,6 +10,18 @@ export interface Product{
     imageName?: string
 }
 
+export interface GraphQLProduct{
+    _id: string,
+    name: string,
+    category: string,
+    tag: string,
+    price: string,
+    rating: string,
+    imageName?: string,
+    __typename?: string,
+    vendor?: {}
+}
+
 //Skapa användare
 export interface ProductRequest{
     name: string,

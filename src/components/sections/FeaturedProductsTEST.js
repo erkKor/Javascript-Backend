@@ -1,13 +1,16 @@
 import React from 'react'
 import { Product } from '../../models/ProductModel'
 import Card from '../items/Card'
+import CardTEST from '../items/CardTEST'
 
-interface FeaturedProductsType{
-  title: string
-  items: Product[]
-}
+// interface FeaturedProductsType{
+//   title: string
+//   items: Product[]
+// }
 
-const FeaturedProducts: React.FC<FeaturedProductsType> = ({title,items}) => {
+const FeaturedProducts = ({title,items}) => {
+
+  console.log(items.products)
   return (
     <section className="featured-products">
         <div className="_container">
@@ -16,7 +19,7 @@ const FeaturedProducts: React.FC<FeaturedProductsType> = ({title,items}) => {
             </div>
             <div className="card-grid">
                 {
-                  items.map((product) => <Card key={product.articleNumber} product={product} />)
+                  items.products.map((products) => <CardTEST key={products._id} product={products} />)
                 }
             </div>
         </div>

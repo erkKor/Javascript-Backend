@@ -52,6 +52,8 @@ const Navbar: React.FC<Props> = ({headerType}) => {
                 <NavLink to="/products" end>Products</NavLink>
                 <NavLink to="/contacts" end>Contacts</NavLink>
                 <NavLink to="/Manage" end>Manage</NavLink>
+                <NavLink to="/productsNew" end>ProductsNEw</NavLink>
+                <NavLink to="/Vendors" end>Vendor</NavLink>
             </div>
             <div className="icon-links">
                 <div className="user-icon">
