@@ -10,15 +10,9 @@ import FeaturedProductsTEST from '../components/sections/FeaturedProductsTEST'
 const GET_PRODUCTS_QUERY = gql`{products { _id, name, category, tag, price, rating, vendor {name}}}`
 
 const ProductsView = () => {
-  //  const {products, getAll} = React.useContext (ProductContext)
-   const {loading, error, data} = useQuery(GET_PRODUCTS_QUERY)
-  console.log(data)
-  if (loading) return <p>Laddar...</p>
-  if (error) return <p>Error... : {error.message}</p>
-
-  // useEffect(() => {
-  //   getAll()
-  // }, [])
+  const {loading, error, data} = useQuery(GET_PRODUCTS_QUERY)
+    if (loading) return <p>Laddar...</p>
+    if (error) return <p>Error... : {error.message}</p>
 
   return (
   <>

@@ -2,26 +2,18 @@ import React, { useContext, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import AddProducts from '../components/OWNPRODUCTS/AddProducts'
 import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
-import { ProductContext, IProductContext } from '../contexts/ProductContext'
 import Breadcrumb from '../components/items/Breadcrumb'
 import Footer from '../components/Footer'
 import AddProductsNEW from '../components/OWNPRODUCTS/AddProductsNEW'
-import { useQuery, useMutation, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
+import { GET_PRODUCTS_QUERY } from '../queries/productQueries'
 
-const GET_PRODUCTS_QUERY = gql`{products { _id, name, category, tag, price, rating, vendor {name}}}`
+// const GET_PRODUCTS_QUERY = gql`{products { _id, name, category, tag, price, rating, vendor {name}}}`
 
 const CreateProductView = () => {
-  const {products, getAll} = useContext(ProductContext) 
   const {loading, error, data} = useQuery(GET_PRODUCTS_QUERY)
-
-  // useEffect(() => {
-  //   getAll()
-  // }, [])
-
-  if (loading) return <p>Laddar...</p>
-  if (error) return <p>Error... : {error.message}</p>
-  console.log(data.products)
-  // let addedProducts = products
+    if (loading) return <p>Laddar...</p>
+    if (error) return <p>Error... : {error.message}</p>
 
   return (
     <>

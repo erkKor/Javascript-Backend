@@ -1,31 +1,19 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, gql } from '@apollo/client'
 import { NavLink } from 'react-router-dom'
-
-const GET_VENDORS_QUERY = gql`{vendors { _id, name}}`
-const POST_PRODUCT_QUERY = gql`
-mutation AddProduct($name: String!, $category: String!, $tag: String!, $price: String!, $rating: String!, $vendorId: ID!) {
-  addProduct(name: $name, category: $category, tag: $tag, price: $price, rating: $rating, vendorId: $vendorId) {
-    name
-  }
-}`
-
+import { GET_VENDORS_QUERY, POST_PRODUCT_QUERY, GET_PRODUCTS_QUERY } from '../../queries/productQueries'
 
 const AddProductsNEW = () => {
-  const default_value = {name: '', category: '', tag: '', price: '', rating: '', vendorId: '0' }
+  const default_value = {name: '', category: '', tag: '', price: '', rating: '', imageName: '', vendorId: '0' }
   const [product, setProduct] = useState(default_value)
   const {loading, error, data} = useQuery(GET_VENDORS_QUERY)
-  const [addProduct] = useMutation(POST_PRODUCT_QUERY)
-  // const {datatest} = useQuery(GET_PRODUCT_QUERY)
+  const [addProduct] = useMutation(POST_PRODUCT_QUERY, {refetchQueries: [{query: GET_PRODUCTS_QUERY}]})
 
   const populateVendors = () => {
     if (loading) return <option disabled>Laddar...</option>
     if (error) return <option disabled>Error fel</option>
     return data.vendors.map(vendor => <option key={vendor._id} value={vendor._id}>{vendor.name}</option>)
   }
-
-  console.log(data)
-
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -42,6 +30,7 @@ const AddProductsNEW = () => {
       <input value={product.tag} onChange={(e) => setProduct({...product, tag: e.target.value})} className="form-control mb-3" type="text" placeholder="Ange product tag"></input>
       <input value={product.price} onChange={(e) => setProduct({...product, price: e.target.value})} className="form-control mb-3" type="text" placeholder="Ange product price"></input>
       <input value={product.rating} onChange={(e) => setProduct({...product, rating: e.target.value})} className="form-control mb-3" type="text" placeholder="Ange product rating"></input>
+      <input value={product.imageName} onChange={(e) => setProduct({...product, imageName: e.target.value})} className="form-control mb-3" type="text" placeholder="Ange image länk"></input>
 
       <select value={product.vendorId} onChange={(e) => setProduct({...product, vendorId: e.target.value})} className="form-select mb-3" type="text">
         <option value="0" disabled>Välj en vendor</option>

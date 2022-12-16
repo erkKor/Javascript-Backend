@@ -2,11 +2,20 @@ import React, { useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import { ProductContext, IProductContext } from '../../contexts/ProductContext'
 import Card from '../items/Card'
+import { useQuery, useMutation, gql } from '@apollo/client'
+import { GET_PRODUCTS_QUERY, DELETE_PRODUCT } from '../../queries/productQueries'
 
+// const DELETE_PRODUCT = gql`
+// mutation RemoveProduct($id: ID!){
+//   deleteProduct(id:$id){
+//     name
+//   }
+// }
+// `
 
 const AddedProducts = ({title,items}) => {
-  const {removeItem} = useContext(ProductContext) 
- 
+  const [removeProduct] = useMutation(DELETE_PRODUCT, {refetchQueries: [{query: GET_PRODUCTS_QUERY}]})
+
   return (
     <section className="featured-products added-products">
         <div className="_container">
@@ -22,7 +31,7 @@ const AddedProducts = ({title,items}) => {
                   <div key={product._id}>
                     <Card  product={product} />
                     <div className="edit-buttons">
-                      <button className="edit-button" onClick={() => removeItem(product._id)}><i className="fa-light fa-trash"></i></button>
+                      <button className="edit-button" onClick={() => removeProduct({variables: {id: product._id}})}><i className="fa-light fa-trash"></i></button>
                       <NavLink to={`/Manage/${product._id}`} end className="edit-button"><i className="fa-light fa-gear"></i></NavLink>
                     </div>
                 </div>)
