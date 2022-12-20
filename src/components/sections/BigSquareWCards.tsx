@@ -1,11 +1,11 @@
 import React from 'react'
-import { Product } from '../../models/ProductModel'
+import { Product, GraphQLProduct } from '../../models/ProductModel'
 import Card from '../items/Card'
 
 interface BigSquareWCardsType{
   id: string
   offer: string
-  items: Product[]
+  items: GraphQLProduct[]
 }
 
 const BigSquareWCards: React.FC<BigSquareWCardsType> = ({id, offer, items}) => {
@@ -14,7 +14,7 @@ const BigSquareWCards: React.FC<BigSquareWCardsType> = ({id, offer, items}) => {
         <div className="_container">
         <div className="card-grid">
                 {
-                  items.map((product)=> <Card key={product.articleNumber} product={product} />)
+                  items.map((product)=> <Card key={product._id} product={product} />)
                 }
             </div>
             <div className="big-square">

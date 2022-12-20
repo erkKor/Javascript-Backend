@@ -2,14 +2,15 @@ import React, { useContext } from 'react'
 import { ShoppingCartContext, ShoppingCartContextType} from '../../contexts/ShoppingCartContext'
 import { WishlistContext, WishlistContextType } from '../../contexts/WishlistContext'
 import { CartItem } from '../../models/shoppingCartModel'
+import { WishlistItem } from '../../models/WishlistModel'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
 import Stars from './Stars'
 
 interface WishlistType{
-  item: CartItem
+  item: WishlistItem
 }
 
-const WishlistItem: React.FC<WishlistType> = ({item}) => {
+const WishlistItemd: React.FC<WishlistType> = ({item}) => {
   const {addOrRemoveWishlistItem, removeItem} = useContext(WishlistContext) as WishlistContextType
   const {incrementQuantity} = useContext(ShoppingCartContext) as ShoppingCartContextType
 
@@ -24,7 +25,7 @@ const WishlistItem: React.FC<WishlistType> = ({item}) => {
         <div className="stars">
           <Stars ratingNumber={item.product.rating}/>
         </div>
-        <p className="item-price">{currencyFormatter(item.product.price)}</p>
+        <p className="item-price">{currencyFormatter(Number(item.product.price))}</p>
         <div className="item-info-quantity">
           {/* <button onClick={() => incrementWishlistQuantity(item)}>+</button> */}
           </div>
@@ -32,7 +33,7 @@ const WishlistItem: React.FC<WishlistType> = ({item}) => {
       <div className="edit-buttons">
         <button className="edit-button" onClick={() => removeItem(item.articleNumber)}><i className="fa-light fa-heart-circle-xmark"></i></button>
         <button className="edit-button" onClick={() => incrementQuantity({
-                articleNumber: item.product.articleNumber, product: item.product,
+                articleNumber: item.product._id, product: item.product,
                 quantity: 0
             })}><i className="fa-light fa-bag-shopping"></i></button>
       </div>
@@ -40,4 +41,4 @@ const WishlistItem: React.FC<WishlistType> = ({item}) => {
   )
 }
 
-export default WishlistItem
+export default WishlistItemd

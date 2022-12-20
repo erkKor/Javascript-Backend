@@ -2,11 +2,11 @@ import React from 'react'
 import Button from './Button'
 import { NavLink } from 'react-router-dom'
 import { currencyFormatter } from '../../utilities/CurrencyFormater'
-import { Product } from '../../models/ProductModel'
+import { Product, GraphQLProduct } from '../../models/ProductModel'
 import Stars from './Stars'
 
 interface SmallCardType{
-    product: Product
+    product: GraphQLProduct
 }
 
 const SmallCard: React.FC<SmallCardType> = ({product}) => {
@@ -14,7 +14,7 @@ const SmallCard: React.FC<SmallCardType> = ({product}) => {
     <div className="small-card">
         <div className="_card-background">
             <img src={product.imageName} alt={product.name}/>
-            <NavLink to={`/products/${product.articleNumber}`}>
+            <NavLink to={`/products/${product._id}`}>
                 <Button theme='button-theme' themeBorder='button-theme-border'/>
             </NavLink>
         </div>
@@ -26,7 +26,7 @@ const SmallCard: React.FC<SmallCardType> = ({product}) => {
             </div>
             <div className="_card-prices"> 
                 <div className="original-price"></div>
-                <div className="discount-price">{currencyFormatter(product.price)}</div>
+                <div className="discount-price">{currencyFormatter(Number(product.price))}</div>
             </div>
         </div>
     </div>

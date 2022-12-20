@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { IUserContext, UserContext } from '../../contexts/UserContext'
 
 const CreateForm = () => {
@@ -12,6 +13,7 @@ const CreateForm = () => {
         <input value={userRequest.email} onChange={(e) => setUserRequest({...userRequest, email: e.target.value})} type="text" className="form-control py-2 mb-3" placeholder="Enter an email"/>
         <input value={userRequest.password} onChange={(e) => setUserRequest({...userRequest, password: e.target.value})} type="password" className="form-control py-2 mb-3" placeholder="Enter a password"/>
         <button type="submit" className="button-theme">Create User</button>
+        <NavLink to="/User" end>Already have an account? Click here!</NavLink>
     </form>
   )
 }

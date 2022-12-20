@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../items/Card'
-import CardTEST from '../items/CardTEST'
+import CardTEST from '../items/Card'
 
 const FeaturedProducts = ({title,items}) => {
   return (

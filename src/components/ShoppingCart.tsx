@@ -7,7 +7,7 @@ const ShoppingCart: React.FC = () => {
   const {cartItems} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
   let TotalPrice = 0
-  cartItems.map(item => TotalPrice = TotalPrice + item.product.price * item.quantity)
+  cartItems.map(item => TotalPrice = TotalPrice + Number(item.product.price) * item.quantity)
 
   return (
     <div className="shoppingcart offcanvas offcanvas-end" tabIndex={-1} id="shoppingCart" aria-labelledby="shoppingCartLabel">

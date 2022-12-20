@@ -364,7 +364,7 @@ margin: 0;
     visibility: visible;
 }
 .hidden-badge{
-    visibility: hidden;
+    display: none;
 }
 
 .d-none{
@@ -378,9 +378,7 @@ margin: 0;
     flex-grow: 0;
 }
 
-.filler{
-    height: 665px;
-}
+
 
 @include ul{
     ._container {

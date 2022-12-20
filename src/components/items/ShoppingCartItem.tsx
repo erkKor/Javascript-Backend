@@ -24,7 +24,7 @@ const ShoppingCartItem: React.FC<ShoppingCartItemType> = ({item}) => {
           </div>
       </div>
       <div className="item-price">
-        <div>{currencyFormatter(item.product.price * item.quantity)}</div>
+        <div>{currencyFormatter(Number(item.product.price) * item.quantity)}</div>
         <button onClick={() => removeItem(item.articleNumber)}><i className="fa-light fa-trash"></i></button>
       </div>
     </div>

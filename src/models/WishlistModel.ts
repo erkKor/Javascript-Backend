@@ -1,7 +1,7 @@
-import { Product } from "./ProductModel"
+import { Product, GraphQLProduct } from "./ProductModel"
 
 export interface WishlistItem {
     articleNumber: string
     quantity: number
-    product: Product
+    product: GraphQLProduct
 }

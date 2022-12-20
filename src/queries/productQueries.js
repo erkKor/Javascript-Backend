@@ -20,6 +20,24 @@ query Product($id: ID!) {
   }
 }
 `
+// Hämtar produkter via Tag
+export const GETBYTAG_QUERY = gql`
+query tag($tag: String!) {
+  getByTag(tag:$tag) {
+    _id,
+    name, 
+    category, 
+    tag,
+    price, 
+    rating, 
+    imageName,
+    vendor {
+      name
+    }
+  }
+}
+`
+
 // Hämtar alla vendors
 export const GET_VENDORS_QUERY = gql`{vendors { _id, name}}`
 
@@ -33,8 +51,8 @@ mutation AddProduct($name: String!, $category: String!, $tag: String!, $price: S
 
 // Update produkt
 export const UPDATE_MUTATION = gql`
-mutation my_UpdateProduct($id: ID!, $name: String!, $category: String!, $tag: String!, $price: String!, $rating: String!) {
-  updateProduct(id: $id, name: $name, category: $category, tag: $tag, price: $price, rating: $rating) {
+mutation my_UpdateProduct($id: ID!, $name: String!, $category: String!, $tag: String!, $price: String!, $rating: String!, $imageName: String!) {
+  updateProduct(id: $id, name: $name, category: $category, tag: $tag, price: $price, rating: $rating, imageName: $imageName) {
     name
   }
 }`
@@ -43,6 +61,17 @@ mutation my_UpdateProduct($id: ID!, $name: String!, $category: String!, $tag: St
 export const DELETE_PRODUCT = gql`
 mutation RemoveProduct($id: ID!){
   deleteProduct(id:$id){
+    name
+  }
+}
+`
+
+// Lägger till en vendor/brand
+export const POST_VENDOR_QUERY = gql
+`
+mutation AddVendor($name: String!) {
+  addVendor(name: $name) {
+    _id,
     name
   }
 }

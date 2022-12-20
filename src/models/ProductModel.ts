@@ -22,6 +22,11 @@ export interface GraphQLProduct{
     vendor?: {}
 }
 
+export interface Vendor{
+    id: string,
+    name: string
+}
+
 //Skapa användare
 export interface ProductRequest{
     name: string,

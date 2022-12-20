@@ -1,11 +1,11 @@
 import React from 'react'
-import { Product } from '../models/ProductModel'
+import { GraphQLProduct } from '../models/ProductModel'
 import SmallCard from './items/SmallCard'
 
 interface TrippleColumType{
-  items1: Product[],
-  items2: Product[],
-  items3: Product[],
+  items1: GraphQLProduct[],
+  items2: GraphQLProduct[],
+  items3: GraphQLProduct[],
 }
 
 const TrippleColumnProducts: React.FC <TrippleColumType> = ({items1, items2, items3}) => {
@@ -15,19 +15,19 @@ const TrippleColumnProducts: React.FC <TrippleColumType> = ({items1, items2, ite
             <div className="product-column">
                 <h2>Latest Product</h2>
                 {
-                 items1.map((product) => <SmallCard key={product.articleNumber} product={product} />)
+                 items1.map((product) => <SmallCard key={product._id} product={product} />)
                 }
             </div>
             <div className="product-column">
                 <h2>Best Selling Product</h2>
                 {
-                  items2.map((product) => <SmallCard key={product.articleNumber} product={product} />)
+                  items2.map((product) => <SmallCard key={product._id} product={product} />)
                 }
             </div>
             <div className="product-column">
                 <h2>Top Reacted Product</h2>
                 {
-                  items3.map((product) => <SmallCard key={product.articleNumber} product={product} />)
+                  items3.map((product) => <SmallCard key={product._id} product={product} />)
                 }
             </div>
         </div>

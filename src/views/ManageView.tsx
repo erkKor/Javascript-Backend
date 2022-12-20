@@ -1,14 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import Navbar from '../components/Navbar'
-import AddProducts from '../components/OWNPRODUCTS/AddProducts'
-import AddedProducts from '../components/OWNPRODUCTS/AddedProducts'
+import AddProducts from '../components/AddProducts'
+import AddedProducts from '../components/AddedProducts'
 import Breadcrumb from '../components/items/Breadcrumb'
 import Footer from '../components/Footer'
-import AddProductsNEW from '../components/OWNPRODUCTS/AddProductsNEW'
 import { useQuery } from '@apollo/client'
 import { GET_PRODUCTS_QUERY } from '../queries/productQueries'
-
-// const GET_PRODUCTS_QUERY = gql`{products { _id, name, category, tag, price, rating, vendor {name}}}`
+import { NavLink } from 'react-router-dom'
 
 const CreateProductView = () => {
   const {loading, error, data} = useQuery(GET_PRODUCTS_QUERY)
@@ -21,9 +19,10 @@ const CreateProductView = () => {
     <Breadcrumb currentPage="Manage"/>
     <div className="_container manage-choices">
       <h3>Manage products</h3>
+      <p>Want to add a new Brand? Click here</p>
+      <NavLink to="/Manage/Brand" end className="button-theme">Add Brand</NavLink>
     </div>
-    {/* <AddProducts /> */}
-    <AddProductsNEW />
+    <AddProducts />
     <AddedProducts title="Added Products" items={data.products}/> 
     <Footer />
     </>

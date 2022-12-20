@@ -1,10 +1,10 @@
 import React from 'react'
-import { Product } from '../../models/ProductModel'
+import { Product, GraphQLProduct } from '../../models/ProductModel'
 import Card from '../items/Card'
 
 interface FeaturedProductsType{
   title: string
-  items: Product[]
+  items: GraphQLProduct[]
 }
 
 const FeaturedProducts: React.FC<FeaturedProductsType> = ({title,items}) => {
@@ -16,7 +16,7 @@ const FeaturedProducts: React.FC<FeaturedProductsType> = ({title,items}) => {
             </div>
             <div className="card-grid">
                 {
-                  items.map((product) => <Card key={product.articleNumber} product={product} />)
+                  items.map((product) => <Card key={product._id} product={product} />)
                 }
             </div>
         </div>

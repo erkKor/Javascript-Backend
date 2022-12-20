@@ -52,28 +52,22 @@ const Navbar: React.FC<Props> = ({headerType}) => {
                 <NavLink to="/products" end>Products</NavLink>
                 <NavLink to="/contacts" end>Contacts</NavLink>
                 <NavLink to="/Manage" end>Manage</NavLink>
-                <NavLink to="/productsNew" end>ProductsNEw</NavLink>
-                <NavLink to="/Vendors" end>Vendor</NavLink>
             </div>
             <div className="icon-links">
                 <div className="user-icon">
                     <h4>{userName}</h4>
-                    <MenuIcon link="/user" icon="fa-light fa-user"/>
+                    <MenuIcon link="/User" icon="fa-light fa-user"/>
                 </div>
-                <MenuIcon link="/search" icon="fa-light fa-magnifying-glass"/>
+                <MenuIcon link="/Search" icon="fa-light fa-magnifying-glass"/>
                 <MenuIcon hideOnMobile={true} link="/compare" icon="fa-light  fa-code-compare rotate-icon rotate-icon"/>
-                {/* <MenuIcon hideOnMobile={true} link="/wishlist" icon="fa-light fa-heart" /> */}
-                
-                <button className="icon-link btn-icon-link" type="button">
-                    <NavLink to="/Wishlist" end><i className="fa-light fa-heart"></i></NavLink>
+                <div className="badge-parent">
+                    <NavLink to="/Wishlist" className="icon-link" end><i className="fa-light fa-heart"></i></NavLink>
                     <span ref={wish} className="badge">{wishlistQuantity}</span>
-                </button>
-                
+                </div>
                 <button className="icon-link btn-icon-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
                     <i className="fa-light fa-bag-shopping"></i>
                     <span ref={ref} className="badge">{cartQuantity}</span>
                 </button>
-
                 <button onClick={toggleMenu} id="hamburgerMenu" className="icon-link btn-icon-link">
                     <i className="fa-light fa-bars-staggered"></i>
                 </button>

@@ -349,7 +349,7 @@ body {
 }
 
 .hidden-badge {
-  visibility: hidden;
+  display: none;
 }
 
 .d-none {
@@ -362,10 +362,6 @@ body {
 
 .offcanvas-body {
   flex-grow: 0;
-}
-
-.filler {
-  height: 665px;
 }
 
 @media (min-width: 1600px) {
@@ -465,6 +461,9 @@ header ._container .icon-links .btn-icon-link {
   border: none;
   display: block;
 }
+header ._container .icon-links .badge-parent {
+  position: relative;
+}
 header a {
   text-decoration: none;
   color: #222529;
@@ -473,7 +472,7 @@ header a {
   font-weight: 500;
 }
 header a:active, header a:hover {
-  color: #222529;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -889,6 +888,10 @@ header a:active, header a:hover {
 }
 .footer a:hover i {
   color: #FF7373;
+}
+
+.filler {
+  height: 70vh;
 }
 
 .breadcrumb {
@@ -2405,8 +2408,48 @@ header a:active, header a:hover {
   margin: 0 auto;
   width: 500px;
 }
+.create .form-control {
+  border-radius: 0;
+}
+.create .form-control:focus {
+  border-color: #CDCED0;
+  box-shadow: 0 0 0 0;
+}
+.create .form-select {
+  border-radius: 0;
+}
+.create .form-select:focus {
+  border-color: #CDCED0;
+  box-shadow: 0 0 0 0;
+}
+.create .succesMessage {
+  color: green;
+  text-align: center;
+}
+.create .faultyMessage {
+  color: red;
+  text-align: center;
+}
 .create .errorMessage {
   color: red;
+}
+.create .errorField {
+  color: #FF7373;
+  border-color: #FF7373 !important;
+}
+.create .fieldName {
+  font-size: 14px;
+  font-weight: 500;
+}
+.create a {
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #222529;
+  text-align: center;
+  font-size: 18px;
+}
+.create a:hover {
+  text-decoration: underline;
 }
 
 .manage-choices {
@@ -2426,6 +2469,19 @@ header a:active, header a:hover {
 }
 .manage-choices .manage-links:hover {
   background-color: #222529;
+}
+.manage-choices a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.manage-choices a:hover {
+  color: white;
+}
+.manage-choices .button-theme {
+  height: 40px;
+  width: 120px;
 }
 
 .added-products ._card ._card-menu {
@@ -2459,6 +2515,10 @@ header a:active, header a:hover {
 }
 .added-products .edit-buttons .edit-button:hover a {
   color: white;
+}
+.added-products .faultyMessage {
+  color: red;
+  text-align: center;
 }
 
 .update-products .top-bar {
@@ -2505,4 +2565,14 @@ header a:active, header a:hover {
 }
 .update-info ._card .button-theme {
   display: none;
+}
+
+.vendor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.vendor .create h5 {
+  text-align: start;
 }

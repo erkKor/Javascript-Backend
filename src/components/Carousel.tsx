@@ -1,7 +1,7 @@
 import React from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { Product } from '../models/ProductModel';
+import { Product, GraphQLProduct } from '../models/ProductModel';
 import Card from './items/Card';
 
 const responsive = {
@@ -12,7 +12,7 @@ const responsive = {
 };
 
 interface CarouselTypes{
-  items: Product[]
+  items: GraphQLProduct[]
 }
 
 const Carousel: React.FC<CarouselTypes> = ({items}) => {
@@ -21,7 +21,7 @@ const Carousel: React.FC<CarouselTypes> = ({items}) => {
     <h3>Related Products</h3>
     <AliceCarousel
         mouseTracking
-        items={ items.map((product) => <Card key={product.articleNumber} product={product} />)}
+        items={ items.map((product) => <Card key={product._id} product={product} />)}
         responsive={responsive}
         controlsStrategy="alternate"
         // disableDotsControls = "false"

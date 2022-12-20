@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import AddProducts from '../components/OWNPRODUCTS/AddProducts'
+import AddProducts from '../components/AddProducts'
 
 const AddProductView = () => {
   return (

@@ -2,8 +2,51 @@
     margin: 0 auto;
     width: 500px;
 
+    .form-control{
+        border-radius: 0;
+        &:focus {
+            border-color: $color-gray-2;
+            box-shadow: 0 0 0 0;
+        } 
+    }
+    .form-select{
+        border-radius: 0;
+        &:focus {
+            border-color: $color-gray-2;
+            box-shadow: 0 0 0 0;
+        } 
+    }
+    
+
+    .succesMessage{
+        color: green;
+        text-align: center;
+    }
+    .faultyMessage{
+        color:red;
+        text-align: center;
+    }
     .errorMessage{
         color:red;
+    }
+    .errorField{
+        color: $color-theme;
+        border-color: $color-theme !important; 
+    }
+    .fieldName{
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    a{
+        margin-top: 1rem;
+        text-decoration: none;
+        color: $color-dark;
+        text-align: center;
+        font-size: 18px;
+        &:hover{
+            text-decoration: underline;
+        }
     }
 }
 
@@ -26,6 +69,21 @@
         }
     }
 
+    a{
+        // color:$color-dark;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover{
+            color:white;
+        }
+    }
+
+    .button-theme{
+        height: 40px;
+        width: 120px;
+    }
     
 }
 
@@ -65,6 +123,10 @@
                 }
             }
         }
+    }
+    .faultyMessage{
+        color:red;
+        text-align: center;
     }
 }
 
@@ -118,4 +180,16 @@
     }
 }
 
+.vendor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .create{
+        h5{
+            text-align: start;
+        }
+    }
+}
 

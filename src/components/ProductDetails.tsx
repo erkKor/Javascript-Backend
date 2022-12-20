@@ -6,12 +6,15 @@ import Tab from './items/Tab'
 import ExternalLinkIcon from './items/ExternalLinkIcon'
 import { ShoppingCartContext, ShoppingCartContextType} from '../contexts/ShoppingCartContext'
 import { currencyFormatter } from '../utilities/CurrencyFormater'
-import { Product } from '../models/ProductModel'
+import { Product, GraphQLProduct } from '../models/ProductModel'
 import Stars from './items/Stars'
 
+interface ProductDetailsType{
+    products: GraphQLProduct
+}
 
-const ProductDetails = ({products}) => {
-    const {incrementQuantity} = useContext(ShoppingCartContext)
+const ProductDetails: React.FC <ProductDetailsType> = ({products}) => {
+    const {incrementQuantity} = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
     
   return (
     <section className='product-details'>
@@ -42,7 +45,7 @@ const ProductDetails = ({products}) => {
                     </div>
                     <div className="product-prices"> 
                         <div className="original-price"></div>
-                        <div className="discount-price">{currencyFormatter(products.price)}</div>
+                        <div className="discount-price">{currencyFormatter(Number(products.price))}</div>
                     </div>
                     <div className="product-content">
                         <p>
@@ -65,7 +68,7 @@ const ProductDetails = ({products}) => {
                             <QuantityButton />
                             <div className="break"></div>
                             <button className="button-theme" type="submit" onClick={() => incrementQuantity({
-                                articleNumber: products.articleNumber, product: products,
+                                articleNumber: products._id, product: products,
                                 quantity: 0
                             })}>ADD TO CART</button>
                         </div>

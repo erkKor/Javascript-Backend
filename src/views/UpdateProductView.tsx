@@ -3,32 +3,13 @@ import { NavLink } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Card from '../components/items/Card'
-import CardTEST from '../components/items/CardTEST'
 import Navbar from '../components/Navbar'
-import UpdateProducts from '../components/OWNPRODUCTS/UpdateProducts'
+import UpdateProducts from '../components/UpdateProducts'
 import { useQuery } from '@apollo/client'
 import { GET_PRODUCT_QUERY } from '../queries/productQueries'
 
-// const GET_PRODUCT_QUERY = gql`
-//   query Product($id: ID!) {
-//     product(id:$id) {
-//       _id,
-//       name, 
-//       category, 
-//       tag,
-//       price, 
-//       rating, 
-//       vendor {
-//         name
-//       }
-//     }
-//   }
-//   `
-
 const UpdateProductsView = () => {
   const {id} = useParams()
-  // const {get, product} = useContext(ProductContext)
-
   const {loading, error, data} = useQuery(GET_PRODUCT_QUERY, {
     variables: {id:id}
   })
@@ -51,7 +32,7 @@ const UpdateProductsView = () => {
     <div className="update-info">
       <h3>Preview</h3>
       <span className="info-text">ONLY UPDATES INFO ON SUBMIT</span>
-      <CardTEST product={data.product}/>
+      <Card product={data.product}/>
     </div>
     <Footer />
     </>

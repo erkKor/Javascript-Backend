@@ -85,6 +85,11 @@ header{
                 border: none;
                 display: block;
             }
+
+            
+            .badge-parent{
+                position: relative;
+            }
         }
     }
     a{
@@ -95,7 +100,7 @@ header{
         font-weight: $font-weight-medium;
 
         &:active, &:hover{
-            color: $color-dark;
+            color: white;
         }
     }
 }

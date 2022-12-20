@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import CreateForm from '../components/EXPRESS/CreateForm'
 import LoginForm from '../components/EXPRESS/LoginForm'
-import UserList from '../components/EXPRESS/UserList'
+import Filler from '../components/Filler'
+import Footer from '../components/Footer'
+import Breadcrumb from '../components/items/Breadcrumb'
 import Navbar from '../components/Navbar'
 
 const UserView: React.FC = () => {
-  const [loggedIn, setLoggedIn] = useState(false)
-
   return (
     <>
     <Navbar headerType='header-light'/>
-    <CreateForm />
-    <UserList />
+    <Breadcrumb currentPage="Login"/>
     <LoginForm />
+    <Filler />
+    <Footer />
     </>
   )
 }
