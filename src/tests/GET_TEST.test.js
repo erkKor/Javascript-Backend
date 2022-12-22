@@ -10,12 +10,12 @@ const mocks = [{
   },
   result: {
     data: {
-      dog: { _id: "1", name: "Nike" }
+      vendor: { _id: "1", name: "Nike" }
     }
   }
 }];
 
-it("renders without error", async () => {
+it("Rendering without any errors", async () => {
   render(
     <MockedProvider mocks={mocks} addTypename={false}>
       <VendorList />
