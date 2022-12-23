@@ -73,8 +73,9 @@ const UpdateProducts = ({idNumber, productData}) => {
     
     if(localStorage.accesToken != undefined){
       if (product.name.length >= 2 && product.category.length >= 2 && product.tag.length >= 1 && product.price >= 0 && product.price.length >= 1 && product.rating <= 5 && product.rating.length >= 1 && product.imageName.length >= 2){
-        if (errors.name === '' && errors.category === '' && errors.price === '' && errors.rating === '' && errors.imageName === '' && errors.vendorId === ''){
-        updateProduct({variables: {id:product._id, 
+        // if (errors.name === '' && errors.category === '' && errors.price === '' && errors.rating === '' && errors.imageName === '' && errors.vendorId === ''){
+          console.log("worked")
+          updateProduct({variables: {id:product._id, 
           name:product.name,
           category: product.category,
           tag: product.tag,
@@ -84,7 +85,7 @@ const UpdateProducts = ({idNumber, productData}) => {
           vendorId: product.vendorId
         }})
         setSuccesMessage('Update Succes')
-        }
+        // }
     }else{
       setErrorMessage('Fields cannot be empty')  
     }
